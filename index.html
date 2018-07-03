@@ -77,7 +77,7 @@
         // generate 1000 datapoints
         var generate = function() {
           // randomly generate extremas
-          var extremas = [(Math.random() * 1000) >> 0,(Math.random() * 1000) >> 0];
+          var extremas = [20,100];
           var max = Math.max.apply(Math, extremas);
           var min = Math.min.apply(Math,extremas);
           var t = [];
@@ -93,9 +93,9 @@
             var c = ((Math.random()* max-min) >> 0) + min;
             var r = (Math.random()* 80) >> 0;
 
-            t.push({ x: 50, y:120, value: c, radius: 200 });
-            t.push({ x: 100, y:120, value: c, radius: 200});
-            t.push({ x: 75, y:300, value: c, radius: 200 });
+            t.push({ x: 50, y:120, value: 400, radius: 100 });
+            t.push({ x: 100, y:120, value: 400, radius: 100});
+            t.push({ x: 75, y:300, value: 400, radius: 100 });
 
           var init = +new Date;
           // set the generated dataset
