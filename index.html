@@ -1,166 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Legend Example (DOM Legends) | heatmap.js</title>
-    <style>
-      body, html, h2 { margin:0; padding:0; height:100%;}
-      body { font-family:sans-serif; }
-      body * { font-weight:200;}
-      #heatmapContainerWrapper { width:167px; height:370px;background-image: url("feet.png");background-repeat: no-repeat;    background-position: center; }
-      #heatmapContainer { width:100%; height:100%;}
-      #heatmapLegend { background:white; position:absolute; bottom:0; right:0; padding:10px; }
-      #min { float:left; }
-      #max { float:right; }
-      h1 { position:absolute; background:black; color:white; padding:10px; font-weight:200;}
-    </style>
-  </head>
-  <body>
-    <div id="heatmapContainerWrapper">
-      <div id="heatmapContainer">
+---
+layout: default
+title: Homepage
+menu: index
+---
 
-      </div>
-      <div id="heatmapLegend">
-        <h2>Descriptive Legend Title</h2>
-        <span id="min"></span>
-        <span id="max"></span>
-        <img id="gradient" src="" style="width:100%" />
-      </div>
-    </div>
-       
-    <script src="https://77mario.github.io/heatmap.js-master/build/heatmap.js"></script>
-    <script>
-      window.onload = function() {
-        // helper function
-        function $(id) {
-          return document.getElementById(id);
-        };
-        /*  legend code */
-        // we want to display the gradient, so we have to draw it
-        var legendCanvas = document.createElement('canvas');
-        legendCanvas.width = 100;
-        legendCanvas.height = 10;
-        var legendCtx = legendCanvas.getContext('2d');
-        var gradientCfg = {};
-        function updateLegend(data) {
-          // the onExtremaChange callback gives us min, max, and the gradientConfig
-          // so we can update the legend
-          $('min').innerHTML = data.min;
-          $('max').innerHTML = data.max;
-          // regenerate gradient image
-          if (data.gradient != gradientCfg) {
-            gradientCfg = data.gradient;
-            var gradient = legendCtx.createLinearGradient(0, 0, 100, 1);
-            for (var key in gradientCfg) {
-              gradient.addColorStop(key, gradientCfg[key]);
-            }
-            legendCtx.fillStyle = gradient;
-            legendCtx.fillRect(0, 0, 100, 10);
-            $('gradient').src = legendCanvas.toDataURL();
-          }
-        };
-        /* legend code end */
-        // create a heatmap instance
-        var heatmap = h337.create({
-          container: document.getElementById('heatmapContainer'),
-          maxOpacity: .5,
-          radius: 30,
-          blur: .3,
-          // update the legend whenever there's an extrema change
-          onExtremaChange: function onExtremaChange(data) {
-            updateLegend(data);
-          }
-        });
-        // boundaries for data generation
-        var width = (+window.getComputedStyle(document.body).width.replace(/px/,''));
-        var height = (+window.getComputedStyle(document.body).height.replace(/px/,''));
-        // generate 1000 datapoints
-        var generate = function() {
-          // randomly generate extremas
-          var extremas = [0,100];
-          var max = Math.max.apply(Math, extremas);
-          var min = Math.min.apply(Math,extremas);
-          var t = [];
-          
-            var c = ((Math.random()* max-min) >> 0) + min;
-            var r = (Math.random()* 80) >> 0;
 
-            t.push({ x: 50, y:120, value: 25, radius: 20 });
-            t.push({ x: 120, y:130, value: 0, radius: 20});
-            t.push({ x: 75, y:300, value: 75, radius: 20 });
+<div class="container">
 
-          var init = +new Date;
-          // set the generated dataset
-          heatmap.setData({
-            min: 0,
-            max: 100,
-            data: t
-          });
-          console.log('took ', (+new Date) - init, 'ms');
-        };
-        // initial generate
-        generate();
-      };
-      var legendCanvas = document.createElement('canvas');
-legendCanvas.width = 100;
-legendCanvas.height = 10;
-var min = document.querySelector('#min');
-var max = document.querySelector('#max');
-var gradientImg = document.querySelector('#gradient');
-var legendCtx = legendCanvas.getContext('2d');
-var gradientCfg = {};
-function updateLegend(data) {
-  // the onExtremaChange callback gives us min, max, and the gradientConfig
-  // so we can update the legend
-  min.innerHTML = data.min;
-  max.innerHTML = data.max;
-  // regenerate gradient image
-  if (data.gradient != gradientCfg) {
-    gradientCfg = data.gradient;
-    var gradient = legendCtx.createLinearGradient(0, 0, 100, 1);
-    for (var key in gradientCfg) {
-      gradient.addColorStop(key, gradientCfg[key]);
-    }
-    legendCtx.fillStyle = gradient;
-    legendCtx.fillRect(0, 0, 100, 10);
-    gradientImg.src = legendCanvas.toDataURL();
-  }
-};
-/* legend code end */
-var heatmapInstance = h337.create({
-  container: document.querySelector('.heatmap'),
-  // onExtremaChange will be called whenever there's a new maximum or minimum
-  onExtremaChange: function(data) {
-    updateLegend(data);
-  }
-});
-/* tooltip code start */
-var demoWrapper = document.querySelector('.demo-wrapper');
-var tooltip = document.querySelector('.tooltip');
-function updateTooltip(x, y, value) {
-  // + 15 for distance to cursor
-  var transl = 'translate(' + (x + 15) + 'px, ' + (y + 15) + 'px)';
-  tooltip.style.webkitTransform = transl;
-  tooltip.innerHTML = value;
-};
-demoWrapper.onmousemove = function(ev) {
-  var x = ev.layerX;
-  var y = ev.layerY;
-  // getValueAt gives us the value for a point p(x/y)
-  var value = heatmapInstance.getValueAt({
-    x: x, 
-    y: y
-  });
-  tooltip.style.display = 'block';
-  updateTooltip(x, y, value);
-};
-// hide tooltip on mouseout
-demoWrapper.onmouseout = function() {
-  tooltip.style.display = 'none';
-};
-/* tooltip code end */
+	{% include page-title.html title="Dashboard" %}
 
- 
-    </script>
-  </body>
-</html>
+	<div class="row row-cards">
+
+		<div class="col-6 col-sm-4 col-lg-2">
+			{% include cards/stats-1.html number=43 title="New Tickets" percentage=6 %}
+		</div>
+		<div class="col-6 col-sm-4 col-lg-2">
+			{% include cards/stats-1.html number=17 title="Closed Today" percentage=-3 %}
+		</div>
+		<div class="col-6 col-sm-4 col-lg-2">
+			{% include cards/stats-1.html number=7 title="New Replies" percentage=9 %}
+		</div>
+		<div class="col-6 col-sm-4 col-lg-2">
+			{% include cards/stats-1.html number="27.3K" title="Followers" percentage=3 %}
+		</div>
+		<div class="col-6 col-sm-4 col-lg-2">
+			{% include cards/stats-1.html number="$95" title="Daily Earnings" percentage=-2 %}
+		</div>
+		<div class="col-6 col-sm-4 col-lg-2">
+			{% include cards/stats-1.html number=621 title="Products" percentage=-1 %}
+		</div>
+		<div class="col-lg-6">
+			{% include cards/development-activity.html %}
+			{% comment %}{% include cards/tasks.html %}{% endcomment %}
+		</div>
+
+		<div class="col-md-6">
+			<div class="alert alert-primary">Are you in trouble? <a href="{{ site.base }}/docs/index.html" class="alert-link">Read our documentation</a> with code samples.</div>
+
+			<div class="row">
+				<div class="col-sm-6">
+					{% include cards/chart.html height=12 title="Chart title" id="chart-donut" data="donut" %}
+				</div>
+				<div class="col-sm-6">
+					{% include cards/chart.html height=12 title="Chart title" id="chart-pie" data="pie" %}
+				</div>
+				<div class="col-sm-6">
+					{% include cards/digit.html color="red" title="New feedback" digit="62" width="28%" %}
+				</div>
+				<div class="col-sm-6">
+					{% include cards/digit.html color="green" title="Today profit" digit="$652" width="84%" %}
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-sm-6 col-lg-3">
+			{% include cards/icon-box.html color="blue" icon="fe fe-dollar-sign" value="132" description="Sales" subtitle="12 waiting payments" %}
+		</div>
+		<div class="col-sm-6 col-lg-3">
+			{% include cards/icon-box.html color="green" icon="fe fe-shopping-cart" value="78" description="Orders" subtitle="32 shipped" %}
+		</div>
+		<div class="col-sm-6 col-lg-3">
+			{% include cards/icon-box.html color="red" icon="fe fe-users" value="1,352" description="Members" subtitle="163 registered today" %}
+		</div>
+		<div class="col-sm-6 col-lg-3">
+			{% include cards/icon-box.html color="yellow" icon="fe fe-message-square" value="132" description="Comments" subtitle="16 waiting" %}
+		</div>
+	</div>
+
+	<div class="row row-cards row-deck">
+		{% for article in site.data.articles limit: 2 %}
+		<div class="col-lg-6">
+			{% include cards/blog-single.html article=article type="aside" %}
+		</div>
+		{% endfor %}
+	</div>
+
+	<div class="row row-cards row-deck">
+
+		<div class="col-12">
+			{% include cards/table-users.html %}
+		</div>
+
+		<div class="col-sm-6 col-lg-4">
+			{% include cards/browsers.html %}
+		</div>
+		<div class="col-sm-6 col-lg-4">
+			{% include cards/projects-list.html %}
+		</div>
+		<div class="col-md-6 col-lg-4">
+			{% include cards/members.html %}
+		</div>
+
+		<div class="col-md-6 col-lg-12">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3">
+					{% include cards/chart-bg.html id="chart-bg-users-1" %}
+				</div>
+				<div class="col-sm-6 col-lg-3">
+					{% include cards/chart-bg.html id="chart-bg-users-2" offset=60 aggregate=true color="red" rate="-3%" %}
+				</div>
+				<div class="col-sm-6 col-lg-3">
+					{% include cards/chart-bg.html id="chart-bg-users-3" offset=50 color="green" rate="-3%" %}
+				</div>
+				<div class="col-sm-6 col-lg-3">
+					{% include cards/chart-bg.html id="chart-bg-users-4" offset=40 color="yellow" rate="9%" %}
+				</div>
+			</div>
+		</div>
+
+		<div class="col-12">
+			{% include cards/invoices.html %}
+		</div>
+	</div>
+</div>
