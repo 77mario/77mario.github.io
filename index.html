@@ -8,7 +8,7 @@
       body, html, h2 { margin:0; padding:0; height:100%;}
       body { font-family:sans-serif; }
       body * { font-weight:200;}
-      #heatmapContainerWrapper { height:370px;background-image: url("feet.png");background-repeat: no-repeat;    background-position: center; }
+      #heatmapContainerWrapper { width:167px;height:370px;background-image: url("feet.png");background-repeat: no-repeat;    background-position: center; }
       #heatmapContainer { width:100%; height:100%;}
       #heatmapLegend { background:white; bottom:0; right:0; padding:10px; }
       #min { float:left; }
@@ -116,19 +116,19 @@
                 <div id="heatmapContainer">
 
                 </div>
-                <div id="heatmapLegend">
-                <h2>Descriptive Legend Title</h2>
-                <span id="min"></span>
-                <span id="max"></span>
-                <img id="gradient" src="" style="width:100%" />
-      </div>
+                
     </div>
        
     <script src="https://77mario.github.io/heatmap.js-master/build/heatmap.js"></script>
             
           </div>
           <div class="chart-notes">
-            Notes about this chart
+            <div id="heatmapLegend">
+                <h2>Descriptive Legend Title</h2>
+                <span id="min"></span>
+                <span id="max"></span>
+                <img id="gradient" src="" style="width:100%" />
+      </div>
           </div>
         </div>
       </div>
@@ -242,9 +242,9 @@
             var c = ((Math.random()* max-min) >> 0) + min;
             var r = (Math.random()* 80) >> 0;
 
-            t.push({ x: 30%, y:120, value: 25, radius: 20 });
-            t.push({ x: 60%, y:130, value: 0, radius: 20});
-            t.push({ x: 45%, y:300, value: 75, radius: 20 });
+            t.push({ x: 100, y:120, value: 25, radius: 20 });
+            t.push({ x: 200, y:130, value: 0, radius: 20});
+            t.push({ x: 150, y:300, value: 75, radius: 20 });
 
           var init = +new Date;
           // set the generated dataset
