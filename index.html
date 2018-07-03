@@ -81,7 +81,7 @@
           var max = Math.max.apply(Math, extremas);
           var min = Math.min.apply(Math,extremas);
           var t = [];
-          for (var i = 0; i < 1000; i++) {
+          /*for (var i = 0; i < 1000; i++) {
             var x = (Math.random()* width) >> 0;
             var y = (Math.random()* height) >> 0;
             var c = ((Math.random()* max-min) >> 0) + min;
@@ -89,7 +89,12 @@
             var r = (Math.random()* 80) >> 0;
             // add to dataset
             t.push({ x: x, y:y, value: c, radius: r });
-          }
+          }*/
+          var c = ((Math.random()* max-min) >> 0) + min;
+            t.push({ x: 100, y:200, value: c, radius: 80 });
+            t.push({ x: 200, y:200, value: c, radius: 80});
+            t.push({ x: 150, y:40, value: c, radius: 80 });
+
           var init = +new Date;
           // set the generated dataset
           heatmap.setData({
