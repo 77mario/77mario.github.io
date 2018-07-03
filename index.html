@@ -63,8 +63,8 @@
         // create a heatmap instance
         var heatmap = h337.create({
           container: document.getElementById('heatmapContainer'),
-          maxOpacity: .5,
-          radius: 10,
+          maxOpacity: .2,
+          radius: 30,
           blur: .2,
           // update the legend whenever there's an extrema change
           onExtremaChange: function onExtremaChange(data) {
@@ -81,15 +81,7 @@
           var max = Math.max.apply(Math, extremas);
           var min = Math.min.apply(Math,extremas);
           var t = [];
-          /*for (var i = 0; i < 1000; i++) {
-            var x = (Math.random()* width) >> 0;
-            var y = (Math.random()* height) >> 0;
-            var c = ((Math.random()* max-min) >> 0) + min;
-            // btw, we can set a radius on a point basis
-            var r = (Math.random()* 80) >> 0;
-            // add to dataset
-            t.push({ x: x, y:y, value: c, radius: r });
-          }*/
+          
             var c = ((Math.random()* max-min) >> 0) + min;
             var r = (Math.random()* 80) >> 0;
 
@@ -108,8 +100,6 @@
         };
         // initial generate
         generate();
-        // whenever a user clicks on the ContainerWrapper the data will be regenerated -> new max & min
-        document.getElementById('heatmapContainerWrapper').onclick = function() { generate(); };
       };
       var legendCanvas = document.createElement('canvas');
 legendCanvas.width = 100;
@@ -169,30 +159,8 @@ demoWrapper.onmouseout = function() {
   tooltip.style.display = 'none';
 };
 /* tooltip code end */
-/*
-  
-// generate some random data
-var points = [];
-var max = 0;
-var min = 1234;
-var width = 840;
-var height = 400;
-var len = 200;
 
-while (len--) {
-  var val = Math.floor(Math.random()*1234);
-  max = Math.max(max, val);
-  min = Math.min(min, val);
-  var point = {
-    x: Math.floor(Math.random()*width),
-    y: Math.floor(Math.random()*height),
-    value: val
-  };
-  points.push(point);
-}
-var data = { max: max, min:min, data: points };
-heatmapInstance.setData(data);
-*/
+ 
     </script>
   </body>
 </html>
