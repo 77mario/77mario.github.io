@@ -93,9 +93,9 @@
             var c = ((Math.random()* max-min) >> 0) + min;
             var r = (Math.random()* 80) >> 0;
 
-            t.push({ x: 50, y:120, value: 400, radius: 100 });
-            t.push({ x: 100, y:120, value: 400, radius: 100});
-            t.push({ x: 75, y:300, value: 400, radius: 100 });
+            t.push({ x: 50, y:120, value: 50, radius: 50 });
+            t.push({ x: 100, y:120, value: 50, radius: 50});
+            t.push({ x: 75, y:300, value: 50, radius: 50 });
 
           var init = +new Date;
           // set the generated dataset
@@ -170,27 +170,6 @@ demoWrapper.onmouseout = function() {
 };
 /* tooltip code end */
 
-// generate some random data
-var points = [];
-var max = 0;
-var min = 1234;
-var width = 840;
-var height = 400;
-var len = 200;
-
-while (len--) {
-  var val = Math.floor(Math.random()*1234);
-  max = Math.max(max, val);
-  min = Math.min(min, val);
-  var point = {
-    x: Math.floor(Math.random()*width),
-    y: Math.floor(Math.random()*height),
-    value: val
-  };
-  points.push(point);
-}
-var data = { max: max, min:min, data: points };
-heatmapInstance.setData(data);
     </script>
   </body>
 </html>
