@@ -7,12 +7,13 @@
       body, html, h2 { margin:0; padding:0; height:100%;}
       body { font-family:sans-serif; }
       body * { font-weight:200;}
-      #heatmapContainerWrapper { width:167px; height:370px;background-image: url("feet.png");background-repeat: no-repeat;    background-position: center; }
+      #heatmapContainerWrapper { width:100%; height:100%; position:absolute; background:rgba(0,0,0,.1); }
       #heatmapContainer { width:100%; height:100%;}
       #heatmapLegend { background:white; position:absolute; bottom:0; right:0; padding:10px; }
       #min { float:left; }
       #max { float:right; }
       h1 { position:absolute; background:black; color:white; padding:10px; font-weight:200;}
+      #all-examples-info { position:absolute; background:white; font-size:16px; padding:20px; top:100px; width:350px; line-height:150%; border:1px solid rgba(0,0,0,.2);}
     </style>
   </head>
   <body>
@@ -27,21 +28,27 @@
         <img id="gradient" src="" style="width:100%" />
       </div>
     </div>
-       
-    <script src="https://77mario.github.io/heatmap.js-master/build/heatmap.js"></script>
+       <h1>Adding a custom legend to heatmap.js</h1>
+        <div id="all-examples-info">
+          <strong style="font-weight:bold;line-height:200%;font-size:18px;">Looking for more examples?</strong> <br />Check out the full <a href="http://www.patrick-wied.at/static/heatmapjs/examples.html?utm_source=gh_local" target="_blank">list of all heatmap.js examples</a> with more pointers &amp; inline documentation.
+        </div>
+    <script src="/build/heatmap.js"></script>
     <script>
       window.onload = function() {
         // helper function
         function $(id) {
           return document.getElementById(id);
         };
+
         /*  legend code */
         // we want to display the gradient, so we have to draw it
         var legendCanvas = document.createElement('canvas');
         legendCanvas.width = 100;
         legendCanvas.height = 10;
+
         var legendCtx = legendCanvas.getContext('2d');
         var gradientCfg = {};
+
         function updateLegend(data) {
           // the onExtremaChange callback gives us min, max, and the gradientConfig
           // so we can update the legend
@@ -54,113 +61,65 @@
             for (var key in gradientCfg) {
               gradient.addColorStop(key, gradientCfg[key]);
             }
+
             legendCtx.fillStyle = gradient;
             legendCtx.fillRect(0, 0, 100, 10);
             $('gradient').src = legendCanvas.toDataURL();
           }
         };
         /* legend code end */
+
+
         // create a heatmap instance
         var heatmap = h337.create({
           container: document.getElementById('heatmapContainer'),
           maxOpacity: .5,
-          radius: 30,
-          blur: .3,
+          radius: 10,
+          blur: .75,
           // update the legend whenever there's an extrema change
           onExtremaChange: function onExtremaChange(data) {
             updateLegend(data);
           }
         });
+
         // boundaries for data generation
         var width = (+window.getComputedStyle(document.body).width.replace(/px/,''));
         var height = (+window.getComputedStyle(document.body).height.replace(/px/,''));
+
         // generate 1000 datapoints
         var generate = function() {
           // randomly generate extremas
-          var extremas = [0,100];
+          var extremas = [(Math.random() * 1000) >> 0,(Math.random() * 1000) >> 0];
           var max = Math.max.apply(Math, extremas);
           var min = Math.min.apply(Math,extremas);
           var t = [];
-          
+
+
+          for (var i = 0; i < 1000; i++) {
+            var x = (Math.random()* width) >> 0;
+            var y = (Math.random()* height) >> 0;
             var c = ((Math.random()* max-min) >> 0) + min;
+            // btw, we can set a radius on a point basis
             var r = (Math.random()* 80) >> 0;
-
-            t.push({ x: 50, y:120, value: 25, radius: 20 });
-            t.push({ x: 120, y:130, value: 0, radius: 20});
-            t.push({ x: 75, y:300, value: 75, radius: 20 });
-
+            // add to dataset
+            t.push({ x: x, y:y, value: c, radius: r });
+          }
           var init = +new Date;
           // set the generated dataset
           heatmap.setData({
-            min: 0,
-            max: 100,
+            min: min,
+            max: max,
             data: t
           });
           console.log('took ', (+new Date) - init, 'ms');
         };
         // initial generate
         generate();
-      };
-      var legendCanvas = document.createElement('canvas');
-legendCanvas.width = 100;
-legendCanvas.height = 10;
-var min = document.querySelector('#min');
-var max = document.querySelector('#max');
-var gradientImg = document.querySelector('#gradient');
-var legendCtx = legendCanvas.getContext('2d');
-var gradientCfg = {};
-function updateLegend(data) {
-  // the onExtremaChange callback gives us min, max, and the gradientConfig
-  // so we can update the legend
-  min.innerHTML = data.min;
-  max.innerHTML = data.max;
-  // regenerate gradient image
-  if (data.gradient != gradientCfg) {
-    gradientCfg = data.gradient;
-    var gradient = legendCtx.createLinearGradient(0, 0, 100, 1);
-    for (var key in gradientCfg) {
-      gradient.addColorStop(key, gradientCfg[key]);
-    }
-    legendCtx.fillStyle = gradient;
-    legendCtx.fillRect(0, 0, 100, 10);
-    gradientImg.src = legendCanvas.toDataURL();
-  }
-};
-/* legend code end */
-var heatmapInstance = h337.create({
-  container: document.querySelector('.heatmap'),
-  // onExtremaChange will be called whenever there's a new maximum or minimum
-  onExtremaChange: function(data) {
-    updateLegend(data);
-  }
-});
-/* tooltip code start */
-var demoWrapper = document.querySelector('.demo-wrapper');
-var tooltip = document.querySelector('.tooltip');
-function updateTooltip(x, y, value) {
-  // + 15 for distance to cursor
-  var transl = 'translate(' + (x + 15) + 'px, ' + (y + 15) + 'px)';
-  tooltip.style.webkitTransform = transl;
-  tooltip.innerHTML = value;
-};
-demoWrapper.onmousemove = function(ev) {
-  var x = ev.layerX;
-  var y = ev.layerY;
-  // getValueAt gives us the value for a point p(x/y)
-  var value = heatmapInstance.getValueAt({
-    x: x, 
-    y: y
-  });
-  tooltip.style.display = 'block';
-  updateTooltip(x, y, value);
-};
-// hide tooltip on mouseout
-demoWrapper.onmouseout = function() {
-  tooltip.style.display = 'none';
-};
-/* tooltip code end */
 
- 
+        // whenever a user clicks on the ContainerWrapper the data will be regenerated -> new max & min
+        document.getElementById('heatmapContainerWrapper').onclick = function() { generate(); };
+
+      };
     </script>
   </body>
 </html>
