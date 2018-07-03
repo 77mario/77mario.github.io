@@ -63,9 +63,9 @@
         // create a heatmap instance
         var heatmap = h337.create({
           container: document.getElementById('heatmapContainer'),
-          maxOpacity: .7,
-          radius: 50,
-          blur: .5,
+          maxOpacity: .5,
+          radius: 30,
+          blur: .3,
           // update the legend whenever there's an extrema change
           onExtremaChange: function onExtremaChange(data) {
             updateLegend(data);
