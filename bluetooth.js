@@ -1,6 +1,6 @@
 	//BLE
 	let characteristicCache = null;
-
+    let deviceCache = null;
 
 	function connect() {
 			return (deviceCache ? Promise.resolve(deviceCache) :
