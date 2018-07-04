@@ -79,7 +79,7 @@
                       <img src="assets/img/bluetooth.png" width="150" height="150" />
                     </span>
                     <div style="text-align: center;">
-                      <button id="connect" class="btn btn-success">Connect</button>
+                      <button id="connect" class="btn btn-success" onclick="connect();">Connect</button>
                         <br>
                       <small class="text-muted">Connect with STM32</small>
                     </div>
@@ -248,4 +248,137 @@
 </body>
 </html>
 
+<script>
+      window.onload = function() {
+        // helper function
+        function $(id) {
+          return document.getElementById(id);
+        };
+        /*  legend code */
+        // we want to display the gradient, so we have to draw it
+        var legendCanvas = document.createElement('canvas');
+        legendCanvas.width = 100;
+        legendCanvas.height = 10;
+        var legendCtx = legendCanvas.getContext('2d');
+        var gradientCfg = {};
+        function updateLegend(data) {
+          // the onExtremaChange callback gives us min, max, and the gradientConfig
+          // so we can update the legend
+          $('min').innerHTML = data.min;
+          $('max').innerHTML = data.max;
+          // regenerate gradient image
+          if (data.gradient != gradientCfg) {
+            gradientCfg = data.gradient;
+            var gradient = legendCtx.createLinearGradient(0, 0, 100, 1);
+            for (var key in gradientCfg) {
+              gradient.addColorStop(key, gradientCfg[key]);
+            }
+            legendCtx.fillStyle = gradient;
+            legendCtx.fillRect(0, 0, 100, 10);
+            $('gradient').src = legendCanvas.toDataURL();
+          }
+        };
+        /* legend code end */
+        // create a heatmap instance
+        var heatmap = h337.create({
+          container: document.getElementById('heatmapContainer'),
+          maxOpacity: .5,
+          radius: 20,
+          blur: .4,
+          // update the legend whenever there's an extrema change
+          onExtremaChange: function onExtremaChange(data) {
+            updateLegend(data);
+          }
+        });
+        // boundaries for data generation
+        var width = (+window.getComputedStyle(document.body).width.replace(/px/,''));
+        var height = (+window.getComputedStyle(document.body).height.replace(/px/,''));
+        // generate 1000 datapoints
+        var generate = function() {
+          // randomly generate extremas
+          var extremas = [0,100];
+          var max = Math.max.apply(Math, extremas);
+          var min = Math.min.apply(Math,extremas);
+          var t = [];
+          
+            var c = ((Math.random()* max-min) >> 0) + min;
+            var r = (Math.random()* 80) >> 0;
+
+            t.push({ x: 40, y:120, value: 25, radius: 30 });
+            t.push({ x: 120, y: 140, value: 90, radius: 30});
+            t.push({ x: 75, y:300, value: 75, radius: 30 });
+
+          var init = +new Date;
+          // set the generated dataset
+          heatmap.setData({
+            min: 0,
+            max: 100,
+            data: t
+          });
+          console.log('took ', (+new Date) - init, 'ms');
+        };
+        // initial generate
+        generate();
+      };
+      var legendCanvas = document.createElement('canvas');
+legendCanvas.width = 100;
+legendCanvas.height = 10;
+var min = document.querySelector('#min');
+var max = document.querySelector('#max');
+var gradientImg = document.querySelector('#gradient');
+var legendCtx = legendCanvas.getContext('2d');
+var gradientCfg = {};
+function updateLegend(data) {
+  // the onExtremaChange callback gives us min, max, and the gradientConfig
+  // so we can update the legend
+  min.innerHTML = data.min;
+  max.innerHTML = data.max;
+  // regenerate gradient image
+  if (data.gradient != gradientCfg) {
+    gradientCfg = data.gradient;
+    var gradient = legendCtx.createLinearGradient(0, 0, 100, 1);
+    for (var key in gradientCfg) {
+      gradient.addColorStop(key, gradientCfg[key]);
+    }
+    legendCtx.fillStyle = gradient;
+    legendCtx.fillRect(0, 0, 100, 10);
+    gradientImg.src = legendCanvas.toDataURL();
+  }
+};
+/* legend code end */
+var heatmapInstance = h337.create({
+  container: document.querySelector('.heatmap'),
+  // onExtremaChange will be called whenever there's a new maximum or minimum
+  onExtremaChange: function(data) {
+    updateLegend(data);
+  }
+});
+/* tooltip code start */
+var demoWrapper = document.querySelector('.demo-wrapper');
+var tooltip = document.querySelector('.tooltip');
+function updateTooltip(x, y, value) {
+  // + 15 for distance to cursor
+  var transl = 'translate(' + (x + 15) + 'px, ' + (y + 15) + 'px)';
+  tooltip.style.webkitTransform = transl;
+  tooltip.innerHTML = value;
+};
+demoWrapper.onmousemove = function(ev) {
+  var x = ev.layerX;
+  var y = ev.layerY;
+  // getValueAt gives us the value for a point p(x/y)
+  var value = heatmapInstance.getValueAt({
+    x: x, 
+    y: y
+  });
+  tooltip.style.display = 'block';
+  updateTooltip(x, y, value);
+};
+// hide tooltip on mouseout
+demoWrapper.onmouseout = function() {
+  tooltip.style.display = 'none';
+};
+/* tooltip code end */
+
+ 
+    </script>
  

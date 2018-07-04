@@ -1,14 +1,6 @@
 	//BLE
-	let connectBtn = document.getElementById('connect');
 	let characteristicCache = null;
 
-	window.onload = () => {
-		if(!navigator.bluetooth){
-			alert('Your current browser does not support web bluetooth or is not enabled. Please use the latest version of Chrome and enable Web Bluetooth under chrome://flags');
-			connectBtn.disabled = true;
-		}
-		connectBtn.onclick = connect;
-	}
 
 	function connect() {
 			return (deviceCache ? Promise.resolve(deviceCache) :
