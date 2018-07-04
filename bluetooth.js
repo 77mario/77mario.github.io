@@ -18,14 +18,14 @@
 	var red_command;
 	var blue_command;
 
-
+    /*
 	var timer = new Timer(function() {
 		if (last_command != command){
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
 			last_command = command;
 		}	
-	}, 100);
+	}, 100);*/
 
 	window.onload = () => {
 		if(!navigator.bluetooth){
