@@ -404,15 +404,18 @@ demoWrapper.onmouseout = function() {
     </script>
 
  <script>
-     var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-gradient.addColorStop(0.7, 'red');
-gradient.addColorStop(0.8, 'yellow');
+     var ctx = document.getElementById('myChart').getContext('2d');
+//Create gradient
+var gradient = ctx.createLinearGradient(0, 0, 0, 100);
+gradient.addColorStop(0.8, 'red');
+gradient.addColorStop(0.5, 'yellow');
 gradient.addColorStop(1, 'green');
-
-var ctx = document.getElementById('myChart').getContext('2d');
      var chart = new Chart(ctx, {
+	
+
     // The type of chart we want to create
         type: 'line',
+	
 
     // The data for our dataset
     data: {
