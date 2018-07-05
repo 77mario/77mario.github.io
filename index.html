@@ -432,3 +432,15 @@ gradient.addColorStop(1, 'green');
     options: {}
 });
 </script>
+<!-- Aggiungi passo -->
+<script>
+fuction addData(chart,passo,valore){
+				chart.data.labels.push(passo);
+
+				chart.data.datasets.forEach(function(dataset) {
+					dataset.data.push(valore);
+				});
+
+				chart.update();
+};
+</script>
