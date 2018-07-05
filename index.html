@@ -407,8 +407,8 @@ demoWrapper.onmouseout = function() {
      var ctx = document.getElementById('myChart').getContext('2d');
 //Create gradient
 var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-gradient.addColorStop(0.8, 'red');
-gradient.addColorStop(0.5, 'yellow');
+gradient.addColorStop(0, 'red');
+gradient.addColorStop(0.95, 'yellow');
 gradient.addColorStop(1, 'green');
      var chart = new Chart(ctx, {
 	
