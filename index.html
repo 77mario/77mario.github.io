@@ -412,14 +412,12 @@ demoWrapper.onmouseout = function() {
     </script>
 
  <script>
-     var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChart').getContext('2d');
 //Create gradient
-//var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-//gradient.addColorStop(0, 'red');
-//gradient.addColorStop(0.95, 'yellow');
-//gradient.addColorStop(1, 'green');
-const colours = data.map((value) => value < 0 ? 'red' : 'green');
-
+var gradient = ctx.createLinearGradient(0, 0, 0, 100);
+gradient.addColorStop(0, 'red');
+gradient.addColorStop(0.95, 'yellow');
+gradient.addColorStop(1, 'green');
      var chart = new Chart(ctx, {
 	
 
@@ -432,8 +430,6 @@ const colours = data.map((value) => value < 0 ? 'red' : 'green');
         labels: ["1", "2", "3", "4", "5", "6", "7"],
         datasets: [{
             label: "Bilanciamento piede",
-            pointBorderColor: colours,
-            pointBackgroundColor: colours,
             //backgroundColor: gradient,
             borderColor: 'rgb(50, 10, 10)',
             data: [0, 10, 100, 2, 20, -30, 100],
