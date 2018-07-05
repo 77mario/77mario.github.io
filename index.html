@@ -412,6 +412,7 @@ demoWrapper.onmouseout = function() {
     </script>
 
  <script>
+
 var ctx = document.getElementById('myChart').getContext('2d');
 //Create gradient
 var gradient = ctx.createLinearGradient(0, 0, 0, 100);
@@ -447,11 +448,10 @@ gradient.addColorStop(1, 'green');
         borderColor: 'green',
         borderWidth: 1,
         label: {
-          enabled: false,
-          content: 'Tolleranza 5%'
+          enabled: true,
+          content: '5% Avampiede'
         }
-      }],
-annotations: [{
+      },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
@@ -459,11 +459,10 @@ annotations: [{
         borderColor: 'yellow',
         borderWidth: 1,
         label: {
-          enabled: false,
-          content: 'Tolleranza 6%'
+          enabled: true,
+          content: '6% Avampiede'
         }
-      }],
-annotations: [{
+      },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
@@ -471,11 +470,10 @@ annotations: [{
         borderColor: 'yellow',
         borderWidth: 1,
         label: {
-          enabled: false,
-          content: 'Tolleranza 15%'
+          enabled: true,
+          content: '15% Avampiede'
         }
-      }],
-annotations: [{
+      },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
@@ -483,11 +481,10 @@ annotations: [{
         borderColor: 'red',
         borderWidth: 1,
         label: {
-          enabled: false,
-          content: 'Tolleranza 16%'
+          enabled: true,
+          content: '16% Avampiede'
         }
-      }],
-annotations: [{
+      },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
@@ -495,11 +492,10 @@ annotations: [{
         borderColor: 'green',
         borderWidth: 1,
         label: {
-          enabled: false,
-          content: 'Tolleranza 5%'
+          enabled: true,
+          content: '5% Retropiede'
         }
-      }],
-annotations: [{
+      },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
@@ -507,11 +503,10 @@ annotations: [{
         borderColor: 'yellow',
         borderWidth: 1,
         label: {
-          enabled: false,
-          content: 'Tolleranza 6%'
+          enabled: true,
+          content: '6% Retropiede'
         }
-      }],
-annotations: [{
+      },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
@@ -519,11 +514,10 @@ annotations: [{
         borderColor: 'yellow',
         borderWidth: 1,
         label: {
-          enabled: false,
-          content: 'Tolleranza 15%'
+          enabled: true,
+          content: '15% Retropiede'
         }
-      }],
-annotations: [{
+      },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
@@ -531,13 +525,14 @@ annotations: [{
         borderColor: 'red',
         borderWidth: 1,
         label: {
-          enabled: false,
-          content: 'Tolleranza 16%'
+          enabled: true,
+          content: '16% Retropiede'
         }
     }]
     }
   }
 });
+
 </script>
 <!-- Aggiungi passo -->
 <script>
