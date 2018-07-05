@@ -414,10 +414,12 @@ demoWrapper.onmouseout = function() {
  <script>
      var ctx = document.getElementById('myChart').getContext('2d');
 //Create gradient
-var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-gradient.addColorStop(0, 'red');
-gradient.addColorStop(0.95, 'yellow');
-gradient.addColorStop(1, 'green');
+//var gradient = ctx.createLinearGradient(0, 0, 0, 100);
+//gradient.addColorStop(0, 'red');
+//gradient.addColorStop(0.95, 'yellow');
+//gradient.addColorStop(1, 'green');
+const colours = data.map((value) => value < 0 ? 'red' : 'green');
+
      var chart = new Chart(ctx, {
 	
 
@@ -430,7 +432,9 @@ gradient.addColorStop(1, 'green');
         labels: ["1", "2", "3", "4", "5", "6", "7"],
         datasets: [{
             label: "Bilanciamento piede",
-            backgroundColor: gradient,
+            pointBorderColor: colours,
+            pointBackgroundColor: colours,
+            //backgroundColor: gradient,
             borderColor: 'rgb(50, 10, 10)',
             data: [0, 10, 100, 2, 20, -30, 100],
         }]
@@ -445,9 +449,9 @@ gradient.addColorStop(1, 'green');
 function addData(chart,passo,valore){
 				chart.data.labels.push(passo);
 
-				chart.data.datasets.forEach(function(dataset) {
-					dataset.data.push(valore);
-				});
+                    chart.data.datasets.forEach(function(dataset) {
+                        dataset.data.push(valore);
+                    });
 
 				chart.update();
 };
