@@ -527,8 +527,7 @@ function addData(chart,passo,valore){
 };
 </script>
 <script>
-
-	var barChartData = {
+var barChartData = {
 			labels: ['1'],
 			datasets: [{
 				label: 'Avampiede',
@@ -557,7 +556,35 @@ function addData(chart,passo,valore){
 						display: true,
 						text: 'Valutazione statica (Valori ideali : AVAMPIEDE 45% RETROPIEDE 55%)'
 					}
-				}
+				},
+
+    // Configuration options go here
+    options: {
+    annotation: {
+      annotations: [{
+        type: 'line',
+        mode: 'horizontal',
+        scaleID: 'y-axis-0',
+        value: 45,
+        borderColor: 'red',
+        borderWidth: 1,
+        label: {
+          enabled: false,
+          content: 'Avampiede'
+        }
+      },{
+        type: 'line',
+        mode: 'horizontal',
+        scaleID: 'y-axis-0',
+        value:55,
+        borderColor: 'blue',
+        borderWidth: 1,
+	label: {
+          enabled: false,
+          content: 'Retropiede'
+        }
+      }]
+    }
+  }
 			});
 </script>
-=======
