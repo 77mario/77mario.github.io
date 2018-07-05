@@ -415,10 +415,10 @@ demoWrapper.onmouseout = function() {
 
 var ctx = document.getElementById('myChart').getContext('2d');
 //Create gradient
-var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-gradient.addColorStop(0, 'red');
-gradient.addColorStop(0.95, 'yellow');
-gradient.addColorStop(1, 'green');
+//var gradient = ctx.createLinearGradient(0, 0, 0, 100);
+//gradient.addColorStop(0, 'red');
+//gradient.addColorStop(0.95, 'yellow');
+//gradient.addColorStop(1, 'green');
      var chart = new Chart(ctx, {
 	
 
@@ -449,40 +449,32 @@ gradient.addColorStop(1, 'green');
         borderWidth: 1,
         label: {
           enabled: true,
-          content: '5% Avampiede'
+          content: 'Avampiede'
         }
       },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
-        value:6,
+        value:5.1,
         borderColor: 'yellow',
-        borderWidth: 1,
-        label: {
-          enabled: true,
-          content: '6% Avampiede'
-        }
+        borderWidth: 1
       },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
         value: 15,
         borderColor: 'yellow',
-        borderWidth: 1,
-        label: {
-          enabled: true,
-          content: '15% Avampiede'
-        }
+        borderWidth: 1
       },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
-        value: 16,
+        value: 15.1,
         borderColor: 'red',
         borderWidth: 1,
         label: {
           enabled: true,
-          content: '16% Avampiede'
+          content: 'Avampiede'
         }
       },{
         type: 'line',
@@ -493,40 +485,32 @@ gradient.addColorStop(1, 'green');
         borderWidth: 1,
         label: {
           enabled: true,
-          content: '5% Retropiede'
+          content: 'Retropiede'
         }
       },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
-        value:-6,
+        value:-5.1,
         borderColor: 'yellow',
         borderWidth: 1,
-        label: {
-          enabled: true,
-          content: '6% Retropiede'
-        }
       },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
         value: -15,
         borderColor: 'yellow',
-        borderWidth: 1,
-        label: {
-          enabled: true,
-          content: '15% Retropiede'
-        }
+        borderWidth: 1
       },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
-        value: -16,
+        value: -15.1,
         borderColor: 'red',
         borderWidth: 1,
         label: {
           enabled: true,
-          content: '16% Retropiede'
+          content: 'Retropiede'
         }
     }]
     }
