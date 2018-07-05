@@ -178,7 +178,7 @@
             Valutazione statica - Bar Chart 
           </div>
           <div class="chart-stage">
-            <img data-src="holder.js/100%x180/white">
+<canvas id="myChart2"></canvas>
           </div>
           <div class="chart-notes">
             Valori ideali: AVAMPIEDE 45% RETROPIEDE 55%
@@ -524,4 +524,41 @@ function addData(chart,passo,valore){
 
 				chart.update();
 };
+</script>
+<script>
+
+		var barChartData = {
+			labels: ['1'],
+			datasets: [{
+				label: 'Avampiede',
+				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+				borderColor: 'red',
+				borderWidth: 1
+				
+			}, {
+				label: 'Retropiede',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: 'blue',
+				borderWidth: 1
+			}]
+
+		};
+        var ctx = document.getElementById('myChart2').getContext('2d');
+			window.myBar = new Chart(ctx, {
+				type: 'bar',
+				data: barChartData,
+				options: {
+					responsive: true,
+					legend: {
+						position: 'top',
+					},
+					title: {
+						display: true,
+						text: 'Valutazione statica (Valori ideali : AVAMPIEDE 45% RETROPIEDE 55%)'
+					}
+				}
+			});
+
+		};
+
 </script>
