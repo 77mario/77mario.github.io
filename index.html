@@ -476,20 +476,20 @@ var ctx = document.getElementById('myChart').getContext('2d');
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
-        value: -3,
+        value: -3.1,
         borderColor: 'green',
+        borderWidth: 1
+      },{
+        type: 'line',
+        mode: 'horizontal',
+        scaleID: 'y-axis-0',
+        value:-3,
+        borderColor: 'yellow',
         borderWidth: 1,
         label: {
           enabled: true,
           content: 'Retropiede'
         }
-      },{
-        type: 'line',
-        mode: 'horizontal',
-        scaleID: 'y-axis-0',
-        value:-3.1,
-        borderColor: 'yellow',
-        borderWidth: 1,
       },{
         type: 'line',
         mode: 'horizontal',
@@ -531,20 +531,21 @@ var barChartData = {
 			labels: ['1'],
 			datasets: [{
 				label: 'Avampiede',
-				backgroundColor: 'red',
-				borderColor: 'red',
-				borderWidth: 1
-				
+				backgroundColor: '#e04848',
+				borderColor: '#e04848',
+				borderWidth: 1,
+				data: [44]
 			}, {
 				label: 'Retropiede',
-				backgroundColor: 'blue',
-				borderColor: 'blue',
-				borderWidth: 1
+				backgroundColor: '#4864e0',
+				borderColor: '#4864e0',
+				borderWidth: 1,
+				data: [56]
 			}]
 
 		};
         var ctx = document.getElementById('myChart2').getContext('2d');
-			window.myBar = new Chart(ctx, {
+		var chart2 = new Chart(ctx, {
 				type: 'bar',
 				data: barChartData,
 				options: {
