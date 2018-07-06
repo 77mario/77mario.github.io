@@ -608,6 +608,7 @@ var barChartData = {
 
  <script>
 
+
 var ctx = document.getElementById('myChartStabAP').getContext('2d');
 //Create gradient
 //var gradient = ctx.createLinearGradient(0, 0, 0, 100);
@@ -627,7 +628,8 @@ var ctx = document.getElementById('myChartStabAP').getContext('2d');
         datasets: [{
             label: "Stabilometria AP",
             backgroundColor: 'rgba(0, 0, 0, 0)',
-            borderColor: 'rgb(50, 10, 10)',
+            borderColor: 'blue',
+borderWidth:0.5,
 	    lineTension: 0,
             data: [0, 0.1, -1, .2, -1, -1, 0.5],
         }]
@@ -640,17 +642,17 @@ var ctx = document.getElementById('myChartStabAP').getContext('2d');
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
-        value: 1,
+        value: 0,
         borderColor: 'green',
         borderWidth: 1
-      }
     }]
     }
-  }
+    }
 });
 
 </script>
  <script>
+
 
 var ctx = document.getElementById('myChartStabML').getContext('2d');
 //Create gradient
@@ -671,7 +673,8 @@ var ctx = document.getElementById('myChartStabML').getContext('2d');
         datasets: [{
             label: "Stabilometria ML",
             backgroundColor: 'rgba(0, 0, 0, 0)',
-            borderColor: 'rgb(50, 10, 10)',
+            borderColor: 'blue',
+borderWidth:0.5,
 	    lineTension: 0,
             data: [0, 0.1, -1, .2, -1, -1, 0.5],
         }]
@@ -687,9 +690,9 @@ var ctx = document.getElementById('myChartStabML').getContext('2d');
         value: 0,
         borderColor: 'green',
         borderWidth: 1
-      }
     }]
     }
-  }
+    }
 });
+
 </script>
