@@ -3,6 +3,8 @@
 	let staticButton = document.getElementById('staticButton');
     let characteristicCache = null;
     let deviceCache = null;
+    var command = "000#000#";
+
     var last_command = "000#000#";
 
 	let deviceCache = null;
