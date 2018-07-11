@@ -4,6 +4,10 @@
     let characteristicCache = null;
     let deviceCache = null;
     var last_command = "000#000#";
+
+	let deviceCache = null;
+	let characteristicCache = null;
+	var last_command = "000#000#";
 	
 	var timer = new Timer(function() {
 		if (last_command != command){
@@ -81,4 +85,52 @@
 			command = "101#00#";
 			timer.start();
 		}
+	}
+
+    let readBuffer = '';
+
+	function handleCharacteristicValueChanged(event) {
+		let value = new TextDecoder().decode(event.target.value);
+
+	  	for (let c of value) {
+	    	if (c === '\n') {
+		      let data = readBuffer.trim();
+		      readBuffer = '';
+
+		      if (data) {
+		        receive(data);
+		      }
+		    }
+		    else {
+		      readBuffer += c;
+		    }
+		  }
+	}		
+    function receive(data) {
+  		log(data, 'in');
+	}
+
+	/*function log(data, type = '') {
+		var n_div = $('.in').length;
+		if (n_div >= 6){
+			for (var i = 0; i<n_div-6; i++){
+				$('.in')[0].remove();
+			}
+		}
+		terminal.insertAdjacentHTML('beforeend',
+		'<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');
+
+	}*/
+
+	function writeToCharacteristic(characteristic, str) {
+			characteristic.writeValue(str2ab(str));
+	}
+
+	function str2ab(str){
+		let buf = new ArrayBuffer(str.length); // 2 bytes for each char
+		let bufView = new Uint8Array(buf); //make sure buffer array is of type uint8
+		for (let i=0, strLen=str.length; i < strLen; i++) {
+			bufView[i] = str.charCodeAt(i);
+		}
+		return buf;
 	}
