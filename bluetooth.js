@@ -72,7 +72,7 @@
     function staticFunction(){
 		if (timesClicked%2==0) {
 			timesClicked++;
-			command = "100#00#";
+			command = "0";
 			setTimeout(function(){
 				timer.stop();
 			}, 250);
