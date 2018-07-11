@@ -33,7 +33,6 @@
 	}
 
 	function requestBluetoothDevice() {
-
 		  return navigator.bluetooth.requestDevice({
 		    filters: [{services: [0xFFE0]}],
 		  }).
