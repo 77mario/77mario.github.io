@@ -3,8 +3,8 @@
 	let staticButton = document.getElementById('staticButton');
     let characteristicCache = null;
     let deviceCache = null;
-    var command = "0";
-	var last_command = "0";
+    var command = "000";
+	var last_command = "000";
 	
 	var timer = new Timer(function() {
 		if (last_command != command){
