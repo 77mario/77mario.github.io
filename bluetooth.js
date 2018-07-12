@@ -3,7 +3,7 @@
 	let staticButton = document.getElementById('staticButton');
     let characteristicCache = null;
     let deviceCache = null;
-    var command = "1";
+    var command = "0";
 	var last_command = "0";
 	
 	var timer = new Timer(function() {
@@ -70,15 +70,16 @@
 	var timesClicked = 2;
 
     function staticFunction(){
+        var seconds = document.getElementById("static-seconds").value();
 		if (timesClicked%2==0) {
 			timesClicked++;
-			command = "0";
+			command = "0"+seconds;
 			setTimeout(function(){
 				timer.stop();
 			}, 250);
 		}else{
 			timesClicked++;
-			command = "1";
+			command = "1"+seconds;
 			timer.start();
 		}
 	}
