@@ -7,11 +7,9 @@
 	var last_command = "000";
 	
 	var timer = new Timer(function() {
-		if (last_command != command){
+		if (command != "000"){
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
-            console.log(timesClicked);
-			last_command = command;
 		}	
 	}, 100);
 
@@ -81,8 +79,8 @@
 				timer.stop();
 			}, 250);
 		}else{
-			timesClicked++;
-			command = "000";
+			//timesClicked++;
+			//command = "000";
 			timer.start();
 		}
 	}
