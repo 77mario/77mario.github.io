@@ -13,7 +13,7 @@
 		}else{
             console.log(command);
         }	
-	}, 100);
+	}, 300);
 
     window.onload = () => {
 		if(!navigator.bluetooth){
