@@ -71,17 +71,11 @@
 
     function staticFunction(){
         var seconds = document.getElementById("static-seconds").value;
-		if (timesClicked%2==0) {
-			timesClicked++;
+		timesClicked++;
 			command = "0"+seconds;
 			setTimeout(function(){
 				timer.stop();
 			}, 250);
-		}else{
-			timesClicked++;
-			command = "1"+seconds;
-			timer.start();
-		}
 	}
 
     let readBuffer = '';
