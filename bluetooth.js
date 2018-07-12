@@ -9,6 +9,7 @@
 		if (command != "000"){
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
+            command = "000";
 		}	
 	}, 100);
 
@@ -114,8 +115,7 @@
 
 	function writeToCharacteristic(characteristic, str) {
 			characteristic.writeValue(str2ab(str));
-            command = "000";
-            timer.start();
+
 	}
 
 	function str2ab(str){
