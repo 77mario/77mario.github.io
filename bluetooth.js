@@ -9,7 +9,6 @@
 		if (command != "000"){
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
-            command = "000";
 		}else{
             console.log(command);
         }	
@@ -72,11 +71,10 @@
 
     function staticFunction(){
         var seconds = document.getElementById("static-seconds").value.toString();
-			
-			command = "1"+seconds;
-			/*setTimeout(function(){
-				timer.stop();
-			}, 250);*/
+		command = "1"+seconds;
+		/*setTimeout(function(){
+		timer.stop();
+		}, 250);*/
 	}
 
 
@@ -84,7 +82,7 @@
 
 	function handleCharacteristicValueChanged(event) {
 		let value = new TextDecoder().decode(event.target.value);
-
+        alert("HELLO");
 	  	for (let c of value) {
 	    	if (c === '\n') {
 		      let data = readBuffer.trim();
@@ -99,24 +97,26 @@
 		    }
 		  }
 	}		
-    /*function receive(data) {
+    function receive(data) {
   		log(data, 'in');
-	}*/
+	}
 
-	/*function log(data, type = '') {
-		var n_div = $('.in').length;
+	function log(data, type = '') {
+        alert(data);
+		/*var n_div = $('.in').length;
 		if (n_div >= 6){
 			for (var i = 0; i<n_div-6; i++){
 				$('.in')[0].remove();
 			}
 		}
 		terminal.insertAdjacentHTML('beforeend',
-		'<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');
+		'<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');*/
 
-	}*/
+	}
 
 	function writeToCharacteristic(characteristic, str) {
 			characteristic.writeValue(str2ab(str));
+            command = "000";
 
 	}
 
@@ -128,3 +128,6 @@
 		}
 		return buf;
 	}
+    
+
+  
