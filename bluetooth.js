@@ -10,7 +10,9 @@
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
             command = "000";
-		}	
+		}else{
+            console.log(command);
+        }	
 	}, 100);
 
     window.onload = () => {
@@ -72,9 +74,9 @@
         var seconds = document.getElementById("static-seconds").value.toString();
 			
 			command = "1"+seconds;
-			setTimeout(function(){
+			/*setTimeout(function(){
 				timer.stop();
-			}, 250);
+			}, 250);*/
 	}
 
 
@@ -97,9 +99,9 @@
 		    }
 		  }
 	}		
-    function receive(data) {
+    /*function receive(data) {
   		log(data, 'in');
-	}
+	}*/
 
 	/*function log(data, type = '') {
 		var n_div = $('.in').length;
