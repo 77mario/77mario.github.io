@@ -60,14 +60,16 @@
 		      });
 	}
 
-	function startNotifications(characteristic) {
-			return characteristic.startNotifications().
-			then(() => {
-			characteristic.addEventListener('characteristicvaluechanged',
-	    		handleCharacteristicValueChanged);
-			});
-	}
- 
+function startNotifications(characteristic) {
+  log('Starting notifications...');
+
+  return characteristic.startNotifications().
+      then(() => {
+        log('Notifications started');
+        characteristic.addEventListener('characteristicvaluechanged',
+            handleCharacteristicValueChanged);
+      });
+}
 
 
     function staticFunction(){
