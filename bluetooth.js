@@ -85,7 +85,6 @@
 
 	function handleCharacteristicValueChanged(event) {
 		let value = new TextDecoder().decode(event.target.value);
-          log('Hello');
 	  	for (let c of value) {
 	    	if (c === '\n') {
 		      let data = readBuffer.trim();
@@ -103,7 +102,7 @@
     function receive(data) {
   		log(data, 'in');
 	}
-/*
+
 	function log(data, type = '') {
 		var n_div = $('.in').length;
 		if (n_div >= 6){
@@ -111,11 +110,10 @@
 				$('.in')[0].remove();
 			}
 		}
-		terminal.insertAdjacentHTML('beforeend',
-		'<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');
+		alert(data);
 
 	}
-*/
+
 	function writeToCharacteristic(characteristic, str) {
 			characteristic.writeValue(str2ab(str));
 
