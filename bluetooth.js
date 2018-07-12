@@ -7,7 +7,7 @@
 	var last_command = "000";
 	
 	var timer = new Timer(function() {
-		if (last_command != command && command != "000"){
+		if (last_command != command){
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
             console.log(timesClicked);
