@@ -104,9 +104,8 @@
 	}
 
 	function log(data, type = '') {
-
-        //{\"weight_perc\" : [\"%d\",\"%d\",\"%d\"]\"}
-		var json_data = JSON.parse(data);
+        alert(data);
+       //{\"code\" : \"1\", \"weight_perc\" : {\"avan_sx\":\"%d\",\"avan_dx\":\"%d\",\"back\":\"%d\"}\"}		var json_data = JSON.parse(data);
         var code = json_data.code;
         
         if (code =="1"){
