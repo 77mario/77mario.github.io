@@ -67,12 +67,11 @@
 			});
 	}
  
-	var timesClicked = 2;
+
 
     function staticFunction(){
         var seconds = document.getElementById("static-seconds").value.toString();
-		timesClicked++;
-			command = "0"+seconds;
+			command = "1"+seconds;
 			setTimeout(function(){
 				timer.stop();
 			}, 250);
