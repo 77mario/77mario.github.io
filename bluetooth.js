@@ -70,7 +70,7 @@
 	var timesClicked = 2;
 
     function staticFunction(){
-        var seconds = document.getElementById("static-seconds").value();
+        var seconds = document.getElementById("static-seconds").value;
 		if (timesClicked%2==0) {
 			timesClicked++;
 			command = "0"+seconds;
