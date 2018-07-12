@@ -9,6 +9,7 @@
 		if (command != "000"){
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
+            command = "000";
 		}else{
             console.log(command);
         }	
@@ -71,10 +72,11 @@
 
     function staticFunction(){
         var seconds = document.getElementById("static-seconds").value.toString();
-		command = "1"+seconds;
-		/*setTimeout(function(){
-		timer.stop();
-		}, 250);*/
+			
+			command = "1"+seconds;
+			/*setTimeout(function(){
+				timer.stop();
+			}, 250);*/
 	}
 
 
@@ -116,7 +118,6 @@
 
 	function writeToCharacteristic(characteristic, str) {
 			characteristic.writeValue(str2ab(str));
-            command = "000";
 
 	}
 
