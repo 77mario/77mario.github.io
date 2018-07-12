@@ -61,7 +61,6 @@
 	}
 
 	function startNotifications(characteristic) {
-          log('Starting notifications...');
 
 			return characteristic.startNotifications().
 			then(() => {
@@ -86,7 +85,7 @@
 
 	function handleCharacteristicValueChanged(event) {
 		let value = new TextDecoder().decode(event.target.value);
-        alert("Hello");
+          log('Hello');
 	  	for (let c of value) {
 	    	if (c === '\n') {
 		      let data = readBuffer.trim();
