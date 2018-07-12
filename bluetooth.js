@@ -60,21 +60,22 @@
 		      });
 	}
 
-function startNotifications(characteristic) {
-  log('Starting notifications...');
+	function startNotifications(characteristic) {
+          log('Starting notifications...');
 
-  return characteristic.startNotifications().
-      then(() => {
-        log('Notifications started');
-        characteristic.addEventListener('characteristicvaluechanged',
-            handleCharacteristicValueChanged);
-      });
-}
+			return characteristic.startNotifications().
+			then(() => {
+			characteristic.addEventListener('characteristicvaluechanged',
+	    		handleCharacteristicValueChanged);
+			});
+	}
+ 
 
 
     function staticFunction(){
         var seconds = document.getElementById("static-seconds").value.toString();
-		command = "1"+seconds;
+			
+			command = "1"+seconds;
 			/*setTimeout(function(){
 				timer.stop();
 			}, 250);*/
@@ -85,7 +86,7 @@ function startNotifications(characteristic) {
 
 	function handleCharacteristicValueChanged(event) {
 		let value = new TextDecoder().decode(event.target.value);
-        alert("HELLO");
+        alert("Hello");
 	  	for (let c of value) {
 	    	if (c === '\n') {
 		      let data = readBuffer.trim();
@@ -103,20 +104,19 @@ function startNotifications(characteristic) {
     function receive(data) {
   		log(data, 'in');
 	}
-
+/*
 	function log(data, type = '') {
-        alert(data);
-		/*var n_div = $('.in').length;
+		var n_div = $('.in').length;
 		if (n_div >= 6){
 			for (var i = 0; i<n_div-6; i++){
 				$('.in')[0].remove();
 			}
 		}
 		terminal.insertAdjacentHTML('beforeend',
-		'<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');*/
+		'<div' + (type ? ' class="' + type + '"' : '') + '>' + data + '</div>');
 
 	}
-
+*/
 	function writeToCharacteristic(characteristic, str) {
 			characteristic.writeValue(str2ab(str));
 
@@ -130,6 +130,3 @@ function startNotifications(characteristic) {
 		}
 		return buf;
 	}
-    
-
-  
