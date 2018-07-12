@@ -104,13 +104,22 @@
 	}
 
 	function log(data, type = '') {
-		var n_div = $('.in').length;
-		if (n_div >= 6){
-			for (var i = 0; i<n_div-6; i++){
-				$('.in')[0].remove();
-			}
-		}
-		alert(data);
+
+        //{\"weight_perc\" : [\"%d\",\"%d\",\"%d\"]\"}
+		var json_data = JSON.parse(data);
+        var code = json_data.code;
+        
+        if (code =="1"){
+            var weight_perc = json_data.weight_perc; // Array;
+            var avan_sx = weight_perc[0];
+            var avan_dx = weight_perc[1];
+            var back = weight_perc[2];
+        }else{
+            
+            
+        }
+        
+		alert(code + " " + avan_sx+","+avan_dx+","+back);
 
 	}
 
