@@ -110,9 +110,9 @@
         
         if (code =="1"){
             var weight_perc = json_data.weight_perc; // Array;
-            var avan_sx = weight_perc[0];
-            var avan_dx = weight_perc[1];
-            var back = weight_perc[2];
+            avan_sx = weight_perc[0];
+            avan_dx = weight_perc[1];
+            back = weight_perc[2];
         }else{
             
             
