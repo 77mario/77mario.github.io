@@ -456,14 +456,12 @@ var barChartData = {
 				label: 'Avampiede',
 				backgroundColor: '#e04848',
 				borderColor: '#e04848',
-				borderWidth: 1,
-				data: [44]
+				borderWidth: 1
 			}, {
 				label: 'Retropiede',
 				backgroundColor: '#4864e0',
 				borderColor: '#4864e0',
-				borderWidth: 1,
-				data: [-56]
+				borderWidth: 1
 			}]
 
 		};
@@ -527,6 +525,17 @@ var barChartData = {
 			});
 </script>
 
+<!-- Aggiungi valutazione statica -->
+<script>
+function addStaticData(chart,n,av_sx,av_dx,back){
+				chart.data.labels.push(n);
+
+				chart.data.datasets[0].data[n] = a+b;
+  				chart.data.datasets[1].data[n] = -c;
+
+				chart.update();
+};
+</script>
  <script>
 
 
