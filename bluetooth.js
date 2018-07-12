@@ -7,7 +7,7 @@
 	var last_command = "000";
 	
 	var timer = new Timer(function() {
-		if (last_command != command){
+		if (last_command != command && command != "000"){
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
 			last_command = command;
@@ -69,18 +69,20 @@
  
 	var timesClicked = 2;
 
+
     function staticFunction(){
         var seconds = document.getElementById("static-seconds").value.toString();
+			
         if (timesClicked%2==0) {
 			timesClicked++;
-			command = "000";
-			timer.start();
-		}else{
-            timesClicked++;
 			command = "1"+seconds;
 			setTimeout(function(){
 				timer.stop();
 			}, 250);
+		}else{
+			timesClicked++;
+			command = "000";
+			timer.start();
 		}
 	}
 
