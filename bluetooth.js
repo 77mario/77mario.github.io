@@ -67,15 +67,23 @@
 			});
 	}
  
-
+	var timesClicked = 2;
 
     function staticFunction(){
         var seconds = document.getElementById("static-seconds").value.toString();
+        if (timesClicked%2==0) {
+			timesClicked++;
+			command = "000";
+			timer.start();
+		}else{
+            timesClicked++;
 			command = "1"+seconds;
 			setTimeout(function(){
 				timer.stop();
 			}, 250);
+		}
 	}
+
 
     let readBuffer = '';
 
