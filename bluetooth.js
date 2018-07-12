@@ -74,8 +74,7 @@ function startNotifications(characteristic) {
 
     function staticFunction(){
         var seconds = document.getElementById("static-seconds").value.toString();
-			
-			command = "1"+seconds;
+		command = "1"+seconds;
 			/*setTimeout(function(){
 				timer.stop();
 			}, 250);*/
