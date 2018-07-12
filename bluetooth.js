@@ -10,6 +10,7 @@
 		if (last_command != command && command != "000"){
 			writeToCharacteristic(characteristicCache, command);
 			console.log(command);
+            console.log(timesClicked);
 			last_command = command;
 		}	
 	}, 100);
