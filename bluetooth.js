@@ -104,7 +104,6 @@
 	}
 
 	function log(data, type = '') {
-        alert(data);
        //{\"code\" : \"1\", \"weight_perc\" : {\"avan_sx\":\"%d\",\"avan_dx\":\"%d\",\"back\":\"%d\"}\"}		var json_data = JSON.parse(data);
         var code = json_data.code;
         
@@ -113,14 +112,30 @@
             avan_sx = weight_perc[0];
             avan_dx = weight_perc[1];
             back = weight_perc[2];
+            //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
-        }else{
+            //Update heatmap
+            var t = [];
+          
+            var c = ((Math.random()* max-min) >> 0) + min;
+            var r = (Math.random()* 80) >> 0;
+
+            t.push({ x: 40, y:120, value: avan_sx, radius: 35 });
+            t.push({ x: 120, y: 140, value: avan_dx, radius: 35});
+            t.push({ x: 75, y:300, value: back, radius: 35 });
+
+          var init = +new Date;
+          // set the generated dataset
+          heatmap.setData({
+            min: 0,
+            max: 100,
+            data: t
+          });
+          console.log('took ', (+new Date) - init, 'ms');
+            }else{
             
             
         }
-        
-		alert(code + " " + avan_sx+","+avan_dx+","+back);
-
 	}
 
 	function writeToCharacteristic(characteristic, str) {
