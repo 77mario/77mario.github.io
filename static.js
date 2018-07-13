@@ -1,5 +1,5 @@
 //Variabili valutazione statica
-var n_statico = 1;
+var n_statico = 0;
 var static_chart = "";
 var avan_sx ="";
 var avan_dx ="";
@@ -83,7 +83,7 @@ static_chart = new Chart(static_ctx, {
 
 //Aggiungi valutazione statica
 function addStaticData(chart,av_sx,av_dx,back){
-                var n = n_statico++;
+                var n = ++n_statico;
                 var label = n+"°";
 				chart.data.labels.push(label);
 
