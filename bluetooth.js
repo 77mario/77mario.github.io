@@ -66,7 +66,9 @@
 	}
 
 	function startNotifications(characteristic) {
-            document.getElementById("connessione-text").innerHTML = "Connesso con Smart Insole!";;
+            document.getElementById("connessione-text").innerHTML = "Connesso con Smart Insole!";
+            enableButtons();
+
 			return characteristic.startNotifications().
 			then(() => {
 			characteristic.addEventListener('characteristicvaluechanged',
@@ -78,9 +80,12 @@
 
 
     function staticFunction(){
+        
+        disableButtons();
+
         var seconds = document.getElementById("static-seconds").value.toString();
 			
-			command = "1"+seconds;
+		command = "1"+seconds;
 			/*setTimeout(function(){
 				timer.stop();
 			}, 250);*/
@@ -128,6 +133,9 @@
             //Update heatmap
             generateHeatmap(avan_sx,avan_dx,back);            
             console.log("Heatmap Generated");
+            
+            enableButtons();
+
 
         }
 	}
@@ -145,3 +153,18 @@
 		}
 		return buf;
 	}
+
+    function disableButtons(){
+        
+        document.getElementById("calibrazioneButton").disabled = true;
+        document.getElementById("staticButton").disabled = true;
+        document.getElementById("dynamicButton").disabled = true;
+        
+    }
+    function enableButtons(){
+        
+        document.getElementById("calibrazioneButton").disabled = false;
+        document.getElementById("staticButton").disabled = false;
+        document.getElementById("dynamicButton").disabled = false;
+        
+    }

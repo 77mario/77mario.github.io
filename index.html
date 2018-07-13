@@ -87,7 +87,7 @@
                       <br>
                       <small id="connessione-text" class="text-muted">Connetti con SmartInsole</small>
                       <br>
-                      <button class="btn btn-danger" onclick="calibra_acc();">Calibra</button>
+                      <button id ="calibrationButton" class="btn btn-danger" onclick="calibra_acc();" disabled>Calibra</button>
                       <br>
                       <small id="calibrazione-text" class="text-muted">Effetturare Calibrazione</small>
 
@@ -104,7 +104,7 @@
                       <img src="assets/img/StaticEvaluation_Icon.png" width="150" height="150" />
                     </span>
                     <div style="text-align: center;">
-                        <button id="staticButton" class="btn btn-primary" onclick="staticFunction()">Static Evaluation</button>   
+                        <button id="staticButton" class="btn btn-primary" onclick="staticFunction()" disabled>Static Evaluation</button>   
                         <br>
                         <form>
                             Times (from 10 and 99 sec):
@@ -122,7 +122,7 @@
                       <img src="assets/img/SynamicEvaluation_Icon.png" width="150" height="150" />
                     </span>
                     <div style="text-align: center;">
-            <button id="#" class="btn btn-warning">Dynamic Evaluation</button>
+            <button id="dynamicButton" class="btn btn-warning" disabled>Dynamic Evaluation</button>
         <br>
                       <small class="text-muted">Connect with STM32</small>
                     </div>
