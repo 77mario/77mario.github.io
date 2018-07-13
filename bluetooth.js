@@ -104,8 +104,9 @@
 	}
 
 	function log(data, type = '') {
-       //{\"code\" : \"1\", \"weight_perc\" : {\"avan_sx\":\"%d\",\"avan_dx\":\"%d\",\"back\":\"%d\"}\"}		var json_data = JSON.parse(data);
-        alert(data);
+       //{\"code\" : \"1\", \"weight_perc\" : {\"avan_sx\":\"%d\",\"avan_dx\":\"%d\",\"back\":\"%d\"}\"}		
+        var json_data = JSON.parse(data);
+        
         var code = json_data.code;
         
         if (code =="1"){
@@ -118,8 +119,6 @@
             //Update heatmap
             generateHeatmap(avan_sx,avan_dx,back);
         }
-        else{
-            }
 	}
 
 	function writeToCharacteristic(characteristic, str) {
