@@ -12,18 +12,20 @@ var barChartData = {
 				label: 'Avampiede',
 				backgroundColor: '#e04848',
 				borderColor: '#e04848',
-				borderWidth: 1
+				borderWidth: 1,
+                data:[45]
 			}, {
 				label: 'Retropiede',
 				backgroundColor: '#4864e0',
 				borderColor: '#4864e0',
-				borderWidth: 1
+				borderWidth: 1,
+                data:[55]
 			}]
 
 		};
 static_chart = new Chart(static_ctx, {
     
-				label: '',
+				label: 'Valori Ideali',
 				type: 'bar',
 				data: barChartData,
 				options: {
@@ -94,7 +96,7 @@ function addStaticData(chart,av_sx,av_dx,back){
 };
 
 //Generate function
-function generateHeatmap(a,b,c){
+function generateHeatmap(av_sx,av_dx,back){
           // randomly generate extremas
           var extremas = [0,100];
           var max = Math.max.apply(Math, extremas);
@@ -104,9 +106,9 @@ function generateHeatmap(a,b,c){
             var c = ((Math.random()* max-min) >> 0) + min;
             var r = (Math.random()* 80) >> 0;
 
-            t.push({ x: 40, y:120, value: a, radius: 30 });
-            t.push({ x: 120, y: 140, value: b, radius: 30});
-            t.push({ x: 75, y:300, value: c, radius: 30 });
+            t.push({ x: 40, y:120, value: av_sx, radius: 30 });
+            t.push({ x: 120, y: 140, value: av_dx, radius: 30});
+            t.push({ x: 75, y:300, value: back, radius: 30 });
 
           var init = +new Date;
           // set the generated dataset
