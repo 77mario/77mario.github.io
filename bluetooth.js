@@ -30,7 +30,12 @@
 		  then(characteristic => startNotifications(characteristic)).
 		  catch(error => console.log(error));
 	}
-
+    
+    function calibra_acc(){
+        document.getElementById("calibrazione-text").innerHTML = "Calibrazione effettuata!";;
+		command = "300";
+        
+    }
 	function requestBluetoothDevice() {
 		  return navigator.bluetooth.requestDevice({
 		    filters: [{services: [0xFFE0]}],
@@ -111,9 +116,9 @@
         
         if (code =="1"){
             var weight_perc = json_data.weight_perc; // Array;
-            avan_sx = weight_perc[0];
-            avan_dx = weight_perc[1];
-            back = weight_perc[2];
+            avan_sx = parseInt(weight_perc[0]);
+            avan_dx = parseInt(weight_perc[1]);
+            back = parseInt(weight_perc[2]);
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
             //Update heatmap
