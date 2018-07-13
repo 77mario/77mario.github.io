@@ -92,3 +92,28 @@ function addStaticData(chart,av_sx,av_dx,back){
 
 				chart.update();
 };
+
+//Generate function
+function generateHeatmap(a,b,c){
+          // randomly generate extremas
+          var extremas = [0,100];
+          var max = Math.max.apply(Math, extremas);
+          var min = Math.min.apply(Math,extremas);
+          var t = [];
+          
+            var c = ((Math.random()* max-min) >> 0) + min;
+            var r = (Math.random()* 80) >> 0;
+
+            t.push({ x: 40, y:120, value: a, radius: 30 });
+            t.push({ x: 120, y: 140, value: b, radius: 30});
+            t.push({ x: 75, y:300, value: c, radius: 30 });
+
+          var init = +new Date;
+          // set the generated dataset
+          heatmap.setData({
+            min: 0,
+            max: 100,
+            data: t
+          });
+          console.log('took ', (+new Date) - init, 'ms');
+        };

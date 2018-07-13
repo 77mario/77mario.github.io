@@ -115,32 +115,9 @@
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
             //Update heatmap
-            var heatmap = h337.create({
-          container: document.getElementById('heatmapContainer'),
-          maxOpacity: .5,
-          radius: 20,
-          blur: .4,
-          // update the legend whenever there's an extrema change
-          onExtremaChange: function onExtremaChange(data) {
-            updateLegend(data);
-          }
-        });
-            var t = [];
-          
-            var c = ((Math.random()* max-min) >> 0) + min;
-            var r = (Math.random()* 80) >> 0;
-
-            t.push({ x: 40, y:120, value: avan_sx, radius: 35 });
-            t.push({ x: 120, y: 140, value: avan_dx, radius: 35});
-            t.push({ x: 75, y:300, value: back, radius: 35 });
-
-            // set the generated dataset
-            heatmap.setData({
-                min: 0,
-                max: 100,
-                data: t
-            });
-            }else{
+            generateHeatmap(avan_sx,avan_dx,back);
+            
+        else{
             }
 	}
 
