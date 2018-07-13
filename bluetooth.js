@@ -113,6 +113,7 @@
             avan_sx = weight_perc[0];
             avan_dx = weight_perc[1];
             back = weight_perc[2];
+            addStaticData(static_chart,avan_sx,avan_dx,back);
         }else{
             
             
