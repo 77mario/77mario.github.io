@@ -26,7 +26,6 @@
     Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
   </script>
   <script src="timer.js"></script>
-  <script src="static.js"></script>
   <script src="https://77mario.github.io/heatmap.js-master/build/heatmap.js"></script>
   <script src="bluetooth.js"></script>
   <!-- keen-analysis@1.2.2 -->
@@ -38,6 +37,10 @@
 
   <!-- Dashboard -->
   <link rel="stylesheet" type="text/css" href="../../assets/css/keen-dashboards.css" />
+<script>
+        var static_ctx = document.getElementById('static-chart').getContext('2d');
+    
+</script>
 </head>
 <body class="keen-dashboard" style="padding-top: 80px;">
 
@@ -165,7 +168,7 @@
             Valutazione statica - Bar Chart 
           </div>
           <div class="chart-stage">
-<canvas id="myChart2"></canvas>
+<canvas id="static-chart"></canvas>
           </div>
           <div class="chart-notes">
             Valori ideali: AVAMPIEDE 45% RETROPIEDE 55%
@@ -238,7 +241,8 @@
   <!-- Project Analytics -->
   <script type="text/javascript" src="../../assets/js/keen-analytics.js"></script>
   <!-- Footer Script-->
-      
+    <script type="text/javascript" src="static.js"></script>
+
 
 </body>
 </html>
@@ -447,81 +451,6 @@ function addData(chart,passo,valore){
 
 				chart.update();
 };
-</script>
-<script>
-var barChartData = {
-			labels: ['1'],
-			datasets: [{
-				label: 'Avampiede',
-				backgroundColor: '#e04848',
-				borderColor: '#e04848',
-				borderWidth: 1
-			}, {
-				label: 'Retropiede',
-				backgroundColor: '#4864e0',
-				borderColor: '#4864e0',
-				borderWidth: 1
-			}]
-
-		};
-        var ctx = document.getElementById('myChart2').getContext('2d');
-		var chart2 = new Chart(ctx, {
-				type: 'bar',
-				data: barChartData,
-				options: {
-					responsive: true,
-					legend: {
-						position: 'top',
-					},
-					title: {
-						display: true,
-						text: 'Valutazione statica (Valori ideali : AVAMPIEDE 45% RETROPIEDE 55%)'
-					}
-				},
-
-    // Configuration options go here
-            
-    options: {
-        tooltips: {
-						mode: 'index',
-						intersect: false
-					},
-					responsive: true,
-					scales: {
-						xAxes: [{
-							stacked: true,
-						}],
-						yAxes: [{
-							stacked: true
-						}]
-					},
-    annotation: {
-      annotations: [{
-        type: 'line',
-        mode: 'horizontal',
-        scaleID: 'y-axis-0',
-        value: 45,
-        borderColor: 'red',
-        borderWidth: 1,
-        label: {
-          enabled: false,
-          content: 'Avampiede'
-        }
-      },{
-        type: 'line',
-        mode: 'horizontal',
-        scaleID: 'y-axis-0',
-        value:-55,
-        borderColor: 'blue',
-        borderWidth: 1,
-	label: {
-          enabled: false,
-          content: 'Retropiede'
-        }
-      }]
-    }
-  }
-			});
 </script>
 
  <script>
