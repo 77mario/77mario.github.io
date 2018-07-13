@@ -116,7 +116,7 @@
             addStaticData(static_chart,avan_sx,avan_dx,back);
             //Update heatmap
             generateHeatmap(avan_sx,avan_dx,back);
-            
+        }
         else{
             }
 	}
