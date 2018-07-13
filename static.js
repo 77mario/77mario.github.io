@@ -21,7 +21,9 @@ var barChartData = {
 			}]
 
 		};
-		static_chart = new Chart(static_ctx, {
+static_chart = new Chart(static_ctx, {
+    
+				label: '',
 				type: 'bar',
 				data: barChartData,
 				options: {
@@ -77,7 +79,7 @@ var barChartData = {
       }]
     }
   }
-			});
+});
 
 //Aggiungi valutazione statica
 function addStaticData(chart,av_sx,av_dx,back){
