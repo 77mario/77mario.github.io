@@ -1,5 +1,5 @@
 //Variabili valutazione statica
-var n_statico = 0;
+var n_statico = 1;
 var static_chart = "";
 var avan_sx ="";
 var avan_dx ="";
