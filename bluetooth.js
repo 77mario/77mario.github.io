@@ -66,13 +66,12 @@
 	}
 
 	function startNotifications(characteristic) {
-
+            document.getElementById("connessione-text").innerHTML = "Connesso con Smart Insole!";;
 			return characteristic.startNotifications().
 			then(() => {
 			characteristic.addEventListener('characteristicvaluechanged',
 	    		handleCharacteristicValueChanged);
 			});
-            document.getElementById("connessione-text").innerHTML = "Connesso con Smart Insole!";;
 
 	}
  
