@@ -1,5 +1,5 @@
 //Variabili valutazione statica
-var n_statico = 0;
+var n_statico = 1;
 var static_chart = "";
 var avan_sx ="";
 var avan_dx ="";
@@ -8,6 +8,7 @@ var back ="";
 //Inizializzazione grafico
 
 var barChartData = {
+            labels: ['Valori Ideali'],
 			datasets: [{
 				label: 'Avampiede',
 				backgroundColor: '#e04848',
@@ -24,8 +25,6 @@ var barChartData = {
 
 		};
 static_chart = new Chart(static_ctx, {
-    
-				labels: ['Valori Ideali'],
 				type: 'bar',
 				data: barChartData,
 				options: {
@@ -85,7 +84,8 @@ static_chart = new Chart(static_ctx, {
 
 //Aggiungi valutazione statica
 function addStaticData(chart,av_sx,av_dx,back){
-                var n = ++n_statico;
+                var n = n_statico;
+                n_statico++;
                 var label = n+"°";
 				chart.data.labels.push(label);
 
