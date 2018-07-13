@@ -117,13 +117,18 @@
         
         if (code =="1"){
             var weight_perc = json_data.weight_perc; // Array;
-            avan_sx = parseInt(weight_perc[0]);
-            avan_dx = parseInt(weight_perc[1]);
-            back = parseInt(weight_perc[2]);
+            console.log(weight_perc);
+            avan_sx = weight_perc[0];
+            avan_dx = weight_perc[1];
+            back = weight_perc[2];
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
+            console.log("tatic data added");
+
             //Update heatmap
-            generateHeatmap(avan_sx,avan_dx,back);
+            generateHeatmap(avan_sx,avan_dx,back);            
+            console.log("Heatmap Generated");
+
         }
 	}
 
