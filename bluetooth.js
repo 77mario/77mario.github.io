@@ -117,9 +117,9 @@
         
         if (code =="1"){
             var weight_perc = json_data.weight_perc; // Array;
-            var avan_sx = weight_perc[0];
-            var avan_dx = weight_perc[1];
-            var back = weight_perc[2];
+            var avan_sx = weight_perc.avan_sx;
+            var avan_dx = weight_perc.avan_dx;
+            var back = weight_perc.back;
 
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
