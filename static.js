@@ -21,8 +21,7 @@ var barChartData = {
 			}]
 
 		};
-        var ctx = document.getElementById('static-chart').getContext('2d');
-		static_chart = new Chart(ctx, {
+		static_chart = new Chart(static_ctx, {
 				type: 'bar',
 				data: barChartData,
 				options: {
