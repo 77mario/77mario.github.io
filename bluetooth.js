@@ -117,13 +117,13 @@
         
         if (code =="1"){
             var weight_perc = json_data.weight_perc; // Array;
-            console.log(weight_perc);
-            avan_sx = weight_perc[0];
-            avan_dx = weight_perc[1];
-            back = weight_perc[2];
+            var avan_sx = weight_perc[0];
+            var avan_dx = weight_perc[1];
+            var back = weight_perc[2];
+
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
-            console.log("tatic data added");
+            console.log("Static data added");
 
             //Update heatmap
             generateHeatmap(avan_sx,avan_dx,back);            

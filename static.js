@@ -1,9 +1,7 @@
 //Variabili valutazione statica
 var n_statico = 1;
 var static_chart = "";
-var avan_sx ="";
-var avan_dx ="";
-var back ="";
+
 
 //Inizializzazione grafico
 
