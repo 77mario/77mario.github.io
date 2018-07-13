@@ -156,14 +156,14 @@
 
     function disableButtons(){
         
-        document.getElementById("calibrazioneButton").disabled = true;
+        document.getElementById("calibrationButton").disabled = true;
         document.getElementById("staticButton").disabled = true;
         document.getElementById("dynamicButton").disabled = true;
         
     }
     function enableButtons(){
         
-        document.getElementById("calibrazioneButton").disabled = false;
+        document.getElementById("calibrationButton").disabled = false;
         document.getElementById("staticButton").disabled = false;
         document.getElementById("dynamicButton").disabled = false;
         
