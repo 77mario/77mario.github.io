@@ -25,7 +25,7 @@ var barChartData = {
 		};
 static_chart = new Chart(static_ctx, {
     
-				label: 'Valori Ideali',
+				labels: ['Valori Ideali'],
 				type: 'bar',
 				data: barChartData,
 				options: {
