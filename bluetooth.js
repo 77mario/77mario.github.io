@@ -33,9 +33,9 @@
     function start_dynamic_evaluation(){
 		
         if(document.getElementById("dynamicButton").innerHTML == "Stop"){
-            document.getElementById("dynamicButton").innerHTML = "Stop";
             command = "201";
         }else{
+            document.getElementById("dynamicButton").innerHTML = "Stop";
             command = "200";
         }
         
