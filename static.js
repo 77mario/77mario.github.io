@@ -18,7 +18,7 @@ var barChartData = {
 				backgroundColor: '#4864e0',
 				borderColor: '#4864e0',
 				borderWidth: 1,
-                data:[55]
+                data:[-55]
 			}]
 
 		};
