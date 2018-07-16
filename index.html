@@ -186,7 +186,7 @@
             Valutazione statica - Heatmap
           </div>
           <div class="chart-stage" style="text-align: center;">
-                <div id="heatmapContainerWrapper">
+                <div id="heatmapContainerWrapper" class="heatmap">
                 <div id="heatmapContainer">
 
                 </div>
@@ -259,7 +259,7 @@
 </html>
 
 <script>
-var heatmap = h337.create({
+var heatmapInstance = h337.create({
   container: document.querySelector('.heatmap'),
   // onExtremaChange will be called whenever there's a new maximum or minimum
   onExtremaChange: function(data) {
@@ -303,7 +303,7 @@ var heatmap = h337.create({
         var height = (+window.getComputedStyle(document.body).height.replace(/px/,''));
        
       };
-var legendCanvas = document.createElement('canvas');
+      var legendCanvas = document.createElement('canvas');
 legendCanvas.width = 100;
 legendCanvas.height = 10;
 var min = document.querySelector('#min');
@@ -345,7 +345,7 @@ demoWrapper.onmousemove = function(ev) {
   var x = ev.layerX;
   var y = ev.layerY;
   // getValueAt gives us the value for a point p(x/y)
-  var value = heatmap.getValueAt({
+  var value = heatmapInstance.getValueAt({
     x: x, 
     y: y
   });
