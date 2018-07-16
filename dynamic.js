@@ -68,7 +68,7 @@ function addDynamicData(dynamic_chart,av_sx,av_dx,back){
 				dynamic_chart.data.labels.push(label);
                 
                 if(back>45){
-                    dynamic_chart.data.datasets[0].data[n] = -(back+45);
+                    dynamic_chart.data.datasets[0].data[n] = -back+45;
                 }else if(back<45){
                    dynamic_chart.data.datasets[0].data[n] = (av_sx+av_dx-55);
                 }else{
