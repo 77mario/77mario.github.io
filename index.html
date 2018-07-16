@@ -194,6 +194,7 @@
     <script src="https://77mario.github.io/heatmap.js-master/build/heatmap.js"></script>
             
           </div>
+            <div class="tooltip" style="display: none; transform: translate(679px, 43px);">100</div>
           <div class="chart-notes">
             <div id="heatmapLegend">
                 
@@ -338,7 +339,7 @@ var heatmapInstance = h337.create({
   }
 });
 /* tooltip code start */
-var demoWrapper = document.querySelector('.demo-wrapper');
+var demoWrapper = document.getElementById('heatmapContainerWrapper');
 var tooltip = document.querySelector('.tooltip');
 function updateTooltip(x, y, value) {
   // + 15 for distance to cursor
