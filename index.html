@@ -338,31 +338,7 @@ var heatmapInstance = h337.create({
     updateLegend(data);
   }
 });
-/* tooltip code start */
-var demoWrapper = document.getElementById('heatmapContainerWrapper');
-var tooltip = document.querySelector('.tooltip');
-function updateTooltip(x, y, value) {
-  // + 15 for distance to cursor
-  var transl = 'translate(' + (x + 15) + 'px, ' + (y + 15) + 'px)';
-  tooltip.style.webkitTransform = transl;
-  tooltip.innerHTML = value;
-};
-demoWrapper.onmousemove = function(ev) {
-  var x = ev.layerX;
-  var y = ev.layerY;
-  // getValueAt gives us the value for a point p(x/y)
-  var value = heatmapInstance.getValueAt({
-    x: x, 
-    y: y
-  });
-  tooltip.style.display = 'block';
-  updateTooltip(x, y, value);
-};
-// hide tooltip on mouseout
-demoWrapper.onmouseout = function() {
-  tooltip.style.display = 'none';
-};
-/* tooltip code end */
+
 
  
     </script>
@@ -473,4 +449,31 @@ borderWidth:0.5,
     }
 });
 
+</script>
+<script>
+/* tooltip code start - Heatmap.js*/
+var demoWrapper = document.getElementById('heatmapContainerWrapper');
+var tooltip = document.querySelector('.tooltip');
+function updateTooltip(x, y, value) {
+  // + 15 for distance to cursor
+  var transl = 'translate(' + (x + 15) + 'px, ' + (y + 15) + 'px)';
+  tooltip.style.webkitTransform = transl;
+  tooltip.innerHTML = value;
+};
+demoWrapper.onmousemove = function(ev) {
+  var x = ev.layerX;
+  var y = ev.layerY;
+  // getValueAt gives us the value for a point p(x/y)
+  var value = heatmapInstance.getValueAt({
+    x: x, 
+    y: y
+  });
+  tooltip.style.display = 'block';
+  updateTooltip(x, y, value);
+};
+// hide tooltip on mouseout
+demoWrapper.onmouseout = function() {
+  tooltip.style.display = 'none';
+};
+/* tooltip code end */
 </script>
