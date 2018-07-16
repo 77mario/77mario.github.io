@@ -154,7 +154,7 @@
             var back = weight_perc.back;
 
             //Update static chart
-            addDyanmicData(dynamic_chart,avan_sx,avan_dx,back);
+            addDynamicData(dynamic_chart,avan_sx,avan_dx,back);
             console.log("Dynamic data added");
         }
 	}
