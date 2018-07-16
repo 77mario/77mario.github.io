@@ -30,9 +30,20 @@
 		  then(characteristic => startNotifications(characteristic)).
 		  catch(error => console.log(error));
 	}
-    
+    function start_dynamic_evaluation(){
+		
+        if(document.getElementById("dynamicButton").innerHTML == "Stop"){
+            document.getElementById("dynamicButton").innerHTML = "Stop";
+            command = "201";
+        }else{
+            command = "200";
+        }
+        
+
+    }
+   
     function calibra_acc(){
-        document.getElementById("calibrazione-text").innerHTML = "Calibrazione effettuata!";;
+        document.getElementById("calibrazione-text").innerHTML = "Calibrazione effettuata!";
 		command = "300";
         
     }
@@ -136,7 +147,15 @@
             
             enableButtons();
 
+        }else if (code=="2"){
+            var weight_perc = json_data.weight_perc; // Array;
+            var avan_sx = weight_perc.avan_sx;
+            var avan_dx = weight_perc.avan_dx;
+            var back = weight_perc.back;
 
+            //Update static chart
+            addDyanmicData(dynamic_chart,avan_sx,avan_dx,back);
+            console.log("Dynamic data added");
         }
 	}
 

@@ -122,7 +122,7 @@
                       <img src="assets/img/SynamicEvaluation_Icon.png" width="150" height="150" />
                     </span>
                     <div style="text-align: center;">
-            <button id="dynamicButton" class="btn btn-warning" disabled>Dynamic Evaluation</button>
+            <button id="dynamicButton" class="btn btn-warning" onclick="start_dynamic_evaluation()" disabled>Dynamic Evaluation</button>
         <br>
                       <small class="text-muted">Connect with STM32</small>
                     </div>
@@ -153,7 +153,7 @@
     <h6 class="card-title">Grafico di apprendimento</h6>
   </div>
   <div class="card-body">
-<canvas id="myChart"></canvas>
+<canvas id="dynamic_chart"></canvas>
   </div>
 </div>
           </div>
@@ -245,7 +245,8 @@
   <!-- Footer Script-->
     <script>
         var static_ctx = document.getElementById('static_chart').getContext('2d');
-    
+        var dynamic_ctx = document.getElementById('dynamic_chart').getContext('2d');
+
     </script>
     <script type="text/javascript" src="static.js"></script>
 
@@ -365,61 +366,6 @@ demoWrapper.onmouseout = function() {
     </script>
 
  <script>
-
-var ctx = document.getElementById('myChart').getContext('2d');
-//Create gradient
-//var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-//gradient.addColorStop(0, 'red');
-//gradient.addColorStop(0.95, 'yellow');
-//gradient.addColorStop(1, 'green');
-     var chart = new Chart(ctx, {
-	
-
-    // The type of chart we want to create
-        type: 'line',
-	
-
-    // The data for our dataset
-    data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7"],
-        datasets: [{
-            label: "Bilanciamento piede",
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            borderColor: 'rgb(50, 10, 10)',
-	    lineTension: 0,
-            data: [0, 4, -3, 10, -2, -1, 2],
-        }]
-    },
-
-    // Configuration options go here
-    options: {
-    annotation: {
-      annotations: [{
-        type: 'line',
-        mode: 'horizontal',
-        scaleID: 'y-axis-0',
-        value: 4,
-        borderColor: 'green',
-        borderWidth: 1,
-        label: {
-          enabled: true,
-          content: 'Avampiede'
-        }
-      },{
-        type: 'line',
-        mode: 'horizontal',
-        scaleID: 'y-axis-0',
-        value: -4,
-        borderColor: 'green',
-        borderWidth: 1,
-        label: {
-          enabled: true,
-          content: 'Retropiede'
-        }
-      }]
-    }
-  }
-});
 
 
 </script>
