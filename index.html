@@ -331,6 +331,12 @@ function updateLegend(data) {
   }
 };
 /* legend code end */
+
+
+
+ 
+    </script>
+<script>
 var heatmapInstance = h337.create({
   container: document.querySelector('.heatmap'),
   // onExtremaChange will be called whenever there's a new maximum or minimum
@@ -339,118 +345,6 @@ var heatmapInstance = h337.create({
   }
 });
 
-
- 
-    </script>
-
- <script>
-
-
-</script>
-<!-- Aggiungi passo -->
-<script>
-function addData(chart,passo,valore){
-				chart.data.labels.push(passo);
-
-                    chart.data.datasets.forEach(function(dataset) {
-                        dataset.data.push(valore);
-                    });
-
-				chart.update();
-};
-</script>
-
- <script>
-
-
-var ctx = document.getElementById('myChartStabAP').getContext('2d');
-//Create gradient
-//var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-//gradient.addColorStop(0, 'red');
-//gradient.addColorStop(0.95, 'yellow');
-//gradient.addColorStop(1, 'green');
-     var chart = new Chart(ctx, {
-	
-
-    // The type of chart we want to create
-        type: 'line',
-	
-
-    // The data for our dataset
-    data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7"],
-        datasets: [{
-            label: "Stabilometria AP",
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            borderColor: 'blue',
-borderWidth:0.5,
-	    lineTension: 0,
-            data: [0, 0.1, -1, .2, -1, -1, 0.5],
-        }]
-    },
-
-    // Configuration options go here
-    options: {
-    annotation: {
-      annotations: [{
-        type: 'line',
-        mode: 'horizontal',
-        scaleID: 'y-axis-0',
-        value: 0,
-        borderColor: 'green',
-        borderWidth: 1
-    }]
-    }
-    }
-});
-
-</script>
- <script>
-
-
-var ctx = document.getElementById('myChartStabML').getContext('2d');
-//Create gradient
-//var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-//gradient.addColorStop(0, 'red');
-//gradient.addColorStop(0.95, 'yellow');
-//gradient.addColorStop(1, 'green');
-     var chart = new Chart(ctx, {
-	
-
-    // The type of chart we want to create
-        type: 'line',
-	
-
-    // The data for our dataset
-    data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7"],
-        datasets: [{
-            label: "Stabilometria ML",
-            backgroundColor: 'rgba(0, 0, 0, 0)',
-            borderColor: 'blue',
-borderWidth:0.5,
-	    lineTension: 0,
-            data: [0, 0.1, -1, .2, -1, -1, 0.5],
-        }]
-    },
-
-    // Configuration options go here
-    options: {
-    annotation: {
-      annotations: [{
-        type: 'line',
-        mode: 'horizontal',
-        scaleID: 'y-axis-0',
-        value: 0,
-        borderColor: 'green',
-        borderWidth: 1
-    }]
-    }
-    }
-});
-
-</script>
-<script>
 /* tooltip code start - Heatmap.js*/
 var demoWrapper = document.getElementById('heatmapContainerWrapper');
 var tooltip = document.querySelector('.tooltip');
