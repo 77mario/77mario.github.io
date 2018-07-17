@@ -118,6 +118,15 @@ function generateHeatmap(av_sx,av_dx,back){
 
 
 function download_static_chart(){ 
-        var chart = document.getElementById('static_chart');
-		chart.exportChart({format: "jpg"});
+        // draw background
+        var backgroundColor = 'white';
+        Chart.plugins.register({
+        beforeDraw: function(c) {
+        var ctx = c.chart.ctx;
+        ctx.fillStyle = backgroundColor;
+        ctx.fillRect(0, 0, c.chart.width, c.chart.height);
+    }});
+		static_chart.toBlob(function(blob) {
+        saveAs(blob, "pretty image.png");
+    });
 };
