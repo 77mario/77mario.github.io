@@ -114,9 +114,8 @@ function generateHeatmap(av_sx,av_dx,back){
           });
 };
 
+
 function download_static_chart(){ 
-        var imgData = document.getElementById('static_chart').toDataURL("image/png", 1.0);
-        var pdf = new jsPDF();
-        pdf.addImage(imgData, 'PNG', 0, 0);
-        pdf.save("static_evaluation.pdf");
-    };
+        var chart = document.getElementById('static_chart');
+		chart.exportChart({format: "jpg"});
+};
