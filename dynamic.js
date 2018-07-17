@@ -1,5 +1,5 @@
 //Variabili valutazione statica
-var n_passo = 0;
+var n_passo = 1;
 var dynamic_chart = "";
 
 
@@ -19,7 +19,7 @@ dynamic_chart = new Chart(dynamic_ctx, {
 
     // The data for our dataset
     data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7"],
+        labels: ["0"],
         datasets: [{
             label: "Bilanciamento piede",
             backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -62,10 +62,12 @@ scales: {
 });
 
 
-//Aggiungi valutazione statica
+//Aggiungi valutazione dinamica
 function addDynamicData(dynamic_chart,av_sx,av_dx,back){
+                
                 var n = n_passo;
                 n_passo++;
+                
                 var label = n+"°";
 				dynamic_chart.data.labels.push(label);
                 
