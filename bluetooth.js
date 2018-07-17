@@ -104,8 +104,10 @@ function staticFunction(){
         disableButtons();
 
         var seconds = document.getElementById("static-seconds").value.toString();
-			
-		command = "1"+seconds;
+	    var tmp = "" + seconds;
+        if (tmp>100 && tmp<199){
+            command = "1"+seconds;
+        }
 			/*setTimeout(function(){
 				timer.stop();
 			}, 250);*/
