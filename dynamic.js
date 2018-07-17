@@ -31,6 +31,16 @@ dynamic_chart = new Chart(dynamic_ctx, {
 
     // Configuration options go here
     options: {
+scales: {
+						
+						yAxes: [{
+                            ticks: {
+                                callback: function(tick) {
+                                    return tick.toString() + '%';
+                                }
+                            }
+						}]
+					},
     annotation: {
       annotations: [{
         type: 'line',
