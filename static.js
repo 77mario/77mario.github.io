@@ -102,9 +102,9 @@ function addStaticData(chart,av_sx,av_dx,back){
 //Generate function
 function generateHeatmap(av_sx,av_dx,back){          
           var t = [];
-          t.push({ x: 40, y:120, value: 40, radius: 25 });
-          t.push({ x: 120, y: 140, value: 20, radius: 25});
-          t.push({ x: 75, y:300, value: 40, radius: 25 });
+          t.push({ x: 40, y:120, value: av_sx, radius: 25 });
+          t.push({ x: 120, y: 140, value: av_dx, radius: 25});
+          t.push({ x: 75, y:300, value: back, radius: 25 });
 
           // set the generated dataset
           heatmap.setData({
