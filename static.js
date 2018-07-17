@@ -119,4 +119,4 @@ function download_static_chart(){
         var pdf = new jsPDF();
         pdf.addImage(imgData, 'JPEG', 0, 0);
         pdf.save("static_evaluation.pdf");
-    }, false);
+    };
