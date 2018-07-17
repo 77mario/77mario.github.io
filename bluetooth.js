@@ -1,10 +1,3 @@
-	//BLE
-	let connectBtn = document.getElementById('connect');
-	let staticButton = document.getElementById('staticButton');
-    let characteristicCache = null;
-    let deviceCache = null;
-    var command = "000";
-	
 	var timer = new Timer(function() {
 		if (command != "000"){
 			writeToCharacteristic(characteristicCache, command);
@@ -16,6 +9,14 @@
 	}, 300);
 
     window.onload = () => {
+        
+        //BLE
+	   let connectBtn = document.getElementById('connect');
+	   let staticButton = document.getElementById('staticButton');
+        let characteristicCache = null;
+        let deviceCache = null;
+        var command = "000";
+        
 		if(!navigator.bluetooth){
 			alert('Your current browser does not support web bluetooth or is not enabled. Please use the latest version of Chrome and enable Web Bluetooth under chrome://flags');
 			connectBtn.disabled = true;
