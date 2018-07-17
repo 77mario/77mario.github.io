@@ -107,6 +107,8 @@ function staticFunction(){
 	    var tmp = "" + seconds;
         if (tmp>100 && tmp<199){
             command = "1"+seconds;
+        }else{
+            enableButtons();
         }
 			/*setTimeout(function(){
 				timer.stop();
