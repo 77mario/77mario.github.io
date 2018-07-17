@@ -85,8 +85,6 @@ static_chart = new Chart(static_ctx, {
     }
   }
 });
-static_chart.render();
-
 
 //Aggiungi valutazione statica
 function addStaticData(chart,av_sx,av_dx,back){
@@ -116,17 +114,9 @@ function generateHeatmap(av_sx,av_dx,back){
           });
 };
 
-
 function download_static_chart(){ 
-        // draw background
-        var backgroundColor = 'white';
-        Chart.plugins.register({
-        beforeDraw: function(c) {
-        var ctx = c.chart.ctx;
-        ctx.fillStyle = backgroundColor;
-        ctx.fillRect(0, 0, c.chart.width, c.chart.height);
-    }});
-		static_chart.toBlob(function(blob) {
-        saveAs(blob, "pretty image.png");
-    });
-};
+        var imgData = document.getElementById('static_chart').toDataURL("image/png", 1.0);
+        var pdf = new jsPDF();
+        pdf.addImage(imgData, 'PNG', 0, 0);
+        pdf.save("static_evaluation.pdf");
+    };
