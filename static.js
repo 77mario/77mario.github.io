@@ -39,6 +39,15 @@ static_chart = new Chart(static_ctx, {
     // Configuration options go here
             
     options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    callback: function(tick) {
+                        return tick.toString() + '%';
+                    }
+                }
+            }]
+        },
         tooltips: {
 						mode: 'index',
 						intersect: false
