@@ -85,6 +85,8 @@ static_chart = new Chart(static_ctx, {
     }
   }
 });
+static_chart.render();
+
 
 //Aggiungi valutazione statica
 function addStaticData(chart,av_sx,av_dx,back){
