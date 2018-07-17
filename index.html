@@ -356,9 +356,9 @@ var demoWrapper = document.getElementById('heatmapContainerWrapper');
 var tooltip = document.querySelector('.tooltip');
 function updateTooltip(x, y, value) {
   // + 15 for distance to cursor
-  var transl = 'translate(' + (x + 15) + 'px, ' + (y + 15) + 'px)';
+  var transl = 'translate(' + (x + 3) + 'px, ' + (y + 3) + 'px)';
   tooltip.style.webkitTransform = transl;
-  tooltip.innerHTML = value;
+  tooltip.innerHTML = value + "%";
 };
 demoWrapper.onmousemove = function(ev) {
   var x = ev.layerX;
