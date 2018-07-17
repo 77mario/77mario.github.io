@@ -101,3 +101,10 @@ function addDynamicData(dynamic_chart,av_sx,av_dx,back){
     
     
 };
+
+function download_dynamic_chart(){ 
+        var imgData = document.getElementById('dynamic_chart').toDataURL("image/png", 1.0);
+        var pdf = new jsPDF();
+        pdf.addImage(imgData, 'PNG', 0, 0);
+        pdf.save("static_evaluation.pdf");
+};
