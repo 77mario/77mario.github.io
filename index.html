@@ -208,7 +208,7 @@
         </div>
       </div>
            </div>
-      <div class="row">
+      <!--<div class="row">
       <div class="col-sm-6 col-md-6">
         <div class="chart-wrapper">
           <div class="chart-title">
@@ -237,10 +237,10 @@
           </div>
         </div>
       </div>
-  </div>
+  </div>-->
        </div>
   <div class="container-fluid">
-    <p class="small text-muted">Layout built by <a href="https://keen.io">Keen IO</a></p>
+    <p class="small text-muted">Dashboard built by Team 12 | Layout <a href="https://keen.io">Keen IO</a></p>
   </div>
 
   <!-- Project Analytics -->
@@ -266,44 +266,8 @@ var heatmap = h337.create({
     updateLegend(data);
   }
 });
-
-     window.onload = function() {
-        // helper function
-        function $(id) {
-          return document.getElementById(id);
-        };
-        /*  legend code */
-        // we want to display the gradient, so we have to draw it
-        var legendCanvas = document.createElement('canvas');
-        legendCanvas.width = 100;
-        legendCanvas.height = 10;
-        var legendCtx = legendCanvas.getContext('2d');
-        var gradientCfg = {};
-        function updateLegend(data) {
-          // the onExtremaChange callback gives us min, max, and the gradientConfig
-          // so we can update the legend
-          $('min').innerHTML = data.min;
-          $('max').innerHTML = data.max;
-          // regenerate gradient image
-          if (data.gradient != gradientCfg) {
-            gradientCfg = data.gradient;
-            var gradient = legendCtx.createLinearGradient(0, 0, 100, 1);
-            for (var key in gradientCfg) {
-              gradient.addColorStop(key, gradientCfg[key]);
-            }
-            legendCtx.fillStyle = gradient;
-            legendCtx.fillRect(0, 0, 100, 10);
-            $('gradient').src = legendCanvas.toDataURL();
-          }
-        };
-        /* legend code end */
-        
-        // boundaries for data generation
-        var width = (+window.getComputedStyle(document.body).width.replace(/px/,''));
-        var height = (+window.getComputedStyle(document.body).height.replace(/px/,''));
-       
-      };
-      var legendCanvas = document.createElement('canvas');
+   
+var legendCanvas = document.createElement('canvas');
 legendCanvas.width = 100;
 legendCanvas.height = 10;
 var min = document.querySelector('#min');
