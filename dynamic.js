@@ -89,10 +89,10 @@ function addDynamicData(dynamic_chart,av_sx,av_dx,back){
                 }
                 if(corretto){
                    var n = document.getElementById("numero_passi_corretti").innerHTML + 1;
-                   document.getElementById("numero_passi_corretti").innerHTML("n");
+                   document.getElementById("numero_passi_corretti").innerHTML = n;
                 }else{
                     var n = document.getElementById("numero_passi_sbagliati").innerHTML + 1;
-                   document.getElementById("numero_passi_sbagliati").innerHTML("n");
+                   document.getElementById("numero_passi_sbagliati").innerHTML = n;
                 }
 				dynamic_chart.update();
     
