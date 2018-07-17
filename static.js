@@ -113,3 +113,10 @@ function generateHeatmap(av_sx,av_dx,back){
             data: t
           });
 };
+
+function download_static_chart(){ 
+        var imgData = document.getElementById('static_chart').toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF();
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.save("static_evaluation.pdf");
+    }, false);

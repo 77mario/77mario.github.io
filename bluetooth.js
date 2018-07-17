@@ -1,4 +1,4 @@
-//Variabili js	
+//Variabili js  	
 let characteristicCache = null;
 let deviceCache = null;
 var command = "000";

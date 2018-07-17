@@ -39,7 +39,8 @@
 
   <!-- Dashboard -->
   <link rel="stylesheet" type="text/css" href="../../assets/css/keen-dashboards.css" />
-
+ <!-- From chart.js to pdf-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 </head>
 <body class="keen-dashboard" style="padding-top: 80px;">
 
@@ -159,9 +160,8 @@
   </div>
 </div>
           </div>
-            
           <div class="chart-notes">
-            Valore ideale (0) = [Avampiede 55%,Retropiede 45%]. A partire dal valore nominale viene indicato di quanto, in percentule, viene applicata un forza maggiore sull'Avampiede(valore positivo delle ordinato) o alternativamente sul Retropiede (valore negativo delle ordinate).
+            <button id="download_static_chart" onclick="download_static_chart()">Download</button><p>Valore ideale (0) = [Avampiede 55%,Retropiede 45%]. A partire dal valore nominale viene indicato di quanto, in percentule, viene applicata un forza maggiore sull'Avampiede(valore positivo delle ordinato) o alternativamente sul Retropiede (valore negativo delle ordinate).</p>
           </div>
         </div>
       </div>
