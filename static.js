@@ -39,15 +39,7 @@ static_chart = new Chart(static_ctx, {
     // Configuration options go here
             
     options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    callback: function(tick) {
-                        return tick.toString() + '%';
-                    }
-                }
-            }]
-        },
+        
         tooltips: {
 						mode: 'index',
 						intersect: false
@@ -58,7 +50,12 @@ static_chart = new Chart(static_ctx, {
 							stacked: true,
 						}],
 						yAxes: [{
-							stacked: true
+							stacked: true,
+                            ticks: {
+                                callback: function(tick) {
+                                    return tick.toString() + '%';
+                                }
+                            }
 						}]
 					},
     annotation: {
