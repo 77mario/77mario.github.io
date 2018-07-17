@@ -1,5 +1,5 @@
 	//BLE
-	
+	let connectBtn = document.getElementById('connect');
 	let staticButton = document.getElementById('staticButton');
     let characteristicCache = null;
     let deviceCache = null;
@@ -31,12 +31,20 @@
 		  catch(error => console.log(error));
 	}
     function start_dynamic_evaluation(){
-		
+		var dyn_btn = document.getElementById("dynamicButton");
         if(document.getElementById("dynamicButton").innerHTML == "Stop"){
             command = "201";
+            dyn_btn.innerHTML = "Dynamic Evaluation";
+            dyn_btn.classList.add('btn-warning');
+            dyn_btn.classList.remove('btn-danger');
+            enableButtons();
         }else{
-            document.getElementById("dynamicButton").innerHTML = "Stop";
+            dyn_btn.innerHTML = "Stop";
+            dyn_btn.classList.remove('btn-warning');
+            dyn_btn.classList.add('btn-danger');
             command = "200";
+            disableButtons()
+            dyn_btn.disabled = false;
         }
         
 

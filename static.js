@@ -110,9 +110,9 @@ function generateHeatmap(av_sx,av_dx,back){
             var c = ((Math.random()* max-min) >> 0) + min;
             var r = (Math.random()* 80) >> 0;
 
-            t.push({ x: 40, y:120, value: av_sx, radius: 30 });
-            t.push({ x: 120, y: 140, value: av_dx, radius: 30});
-            t.push({ x: 75, y:300, value: back, radius: 30 });
+            t.push({ x: 40, y:120, value: av_sx, radius: 25 });
+            t.push({ x: 120, y: 140, value: av_dx, radius: 25});
+            t.push({ x: 75, y:300, value: back, radius: 25 });
 
           var init = +new Date;
           // set the generated dataset

@@ -1,5 +1,5 @@
 //Variabili valutazione statica
-var n_passo = 1;
+var n_passo = 0;
 var dynamic_chart = "";
 
 
@@ -48,22 +48,14 @@ scales: {
         scaleID: 'y-axis-0',
         value: 4,
         borderColor: 'green',
-        borderWidth: 1,
-        label: {
-          enabled: true,
-          content: 'Avampiede'
-        }
+        borderWidth: 1
       },{
         type: 'line',
         mode: 'horizontal',
         scaleID: 'y-axis-0',
         value: -4,
         borderColor: 'green',
-        borderWidth: 1,
-        label: {
-          enabled: true,
-          content: 'Retropiede'
-        }
+        borderWidth: 1
       }]
     }
   }
