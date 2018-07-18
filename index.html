@@ -256,8 +256,8 @@
           <div class="chart-notes">
             <div id="heatmapLegend">
                 
-                <span id="min"></span>
-                <span id="max"></span>
+                <span id="min">0</span>
+                <span id="max">100</span>
                 <img id="gradient" src="" style="width:100%" />
       </div>
           </div>
@@ -350,14 +350,12 @@ function updateLegend(data) {
 };
 /* legend code end */
 
-
-
 /* tooltip code start - Heatmap.js*/
 var demoWrapper = document.getElementById('heatmapContainerWrapper');
 var tooltip = document.querySelector('.tooltip');
 function updateTooltip(x, y, value) {
   // + 15 for distance to cursor
-  var transl = 'translate(' + (x + 3) + 'px, ' + (y + 3) + 'px)';
+  var transl = 'translate(' + (x + 150) + 'px, ' + (y + 0) + 'px)';
   tooltip.style.webkitTransform = transl;
   tooltip.innerHTML = value + "%";
 };
@@ -377,4 +375,5 @@ demoWrapper.onmouseout = function() {
   tooltip.style.display = 'none';
 };
 /* tooltip code end */
+
 </script>
