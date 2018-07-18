@@ -153,7 +153,6 @@ function log(data, type = '') {
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
             console.log("Static data added");
-
             //Update heatmap
             generateHeatmap(avan_sx,avan_dx,back);            
             console.log("Heatmap Generated");
