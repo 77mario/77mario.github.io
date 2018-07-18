@@ -148,7 +148,7 @@ function log(data, type = '') {
             var avan_sx = weight_perc.avan_sx;
             var avan_dx = weight_perc.avan_dx;
             var back = weight_perc.back;
-            tot = json_data.weight_perc;
+            tot = json_data.weight_tot;
                 
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
