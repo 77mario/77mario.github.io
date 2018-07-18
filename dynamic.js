@@ -102,9 +102,6 @@ function addDynamicData(dynamic_chart,av_sx,av_dx,back){
     
 };
 
-function download_dynamic_chart(){ 
-        var imgData = document.getElementById('dynamic_chart').toDataURL("image/png", 1.0);
-        var pdf = new jsPDF();
-        pdf.addImage(imgData, 'PNG', 0, 0);
-        pdf.save("dynamic_evaluation.pdf");
-};
+//Download image
+var url_base64_dynamic = document.getElementById("dynamic_chart").toDataURL("image/jpeg");
+document.getElementById("download_dynamic_chart").href = url_base64jp;
