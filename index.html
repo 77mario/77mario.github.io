@@ -335,7 +335,7 @@ function updateLegend(data) {
   // the onExtremaChange callback gives us min, max, and the gradientConfig
   // so we can update the legend
   min.innerHTML = data.min;
-  max.innerHTML = data.max;
+  max.innerHTML = data.max + " =" + tot + " kg";
   // regenerate gradient image
   if (data.gradient != gradientCfg) {
     gradientCfg = data.gradient;
@@ -357,7 +357,7 @@ function updateTooltip(x, y, value) {
   // + 15 for distance to cursor
   var transl = 'translate(' + (x + 150) + 'px, ' + (y + 0) + 'px)';
   tooltip.style.webkitTransform = transl;
-  tooltip.innerHTML = value + "%";
+  tooltip.innerHTML = value + "% - " (tot/100*value) + "kg";
 };
 demoWrapper.onmousemove = function(ev) {
   var x = ev.layerX;

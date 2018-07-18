@@ -2,6 +2,7 @@
 let characteristicCache = null;
 let deviceCache = null;
 var command = "000";
+var tot = 0;
 
 var timer = new Timer(function() {
 		if (command != "000"){
@@ -132,6 +133,7 @@ function handleCharacteristicValueChanged(event) {
 }		
 
 function receive(data) {
+        tot = 0;
   		log(data, 'in');
 }
 
@@ -146,7 +148,8 @@ function log(data, type = '') {
             var avan_sx = weight_perc.avan_sx;
             var avan_dx = weight_perc.avan_dx;
             var back = weight_perc.back;
-
+            tot = json_data.weight_perc;
+                
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back);
             console.log("Static data added");
