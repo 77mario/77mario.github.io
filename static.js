@@ -97,6 +97,7 @@ function addStaticData(chart,av_sx,av_dx,back){
   				chart.data.datasets[1].data[n] = -back;
 
 				chart.update();
+                static_pre_download();
 };
 
 //Generate function
@@ -114,6 +115,9 @@ function generateHeatmap(av_sx,av_dx,back){
           });
 };
 
+
 //Download image
+function static_pre_download(){
 var url_base64_static = document.getElementById("static_chart").toDataURL("image/jpeg");
-document.getElementById("download_static_chart").href = url_base64jp;
+document.getElementById("download_static_chart").href = url_base64_static;
+}

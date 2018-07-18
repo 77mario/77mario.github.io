@@ -95,7 +95,7 @@ function addDynamicData(dynamic_chart,av_sx,av_dx,back){
                    document.getElementById("numero_passi_sbagliati").innerHTML = n;
                 }
 				dynamic_chart.update();
-    
+                dynamic_pre_download();
     
     
     
@@ -103,5 +103,7 @@ function addDynamicData(dynamic_chart,av_sx,av_dx,back){
 };
 
 //Download image
-var url_base64_dynamic = document.getElementById("dynamic_chart").toDataURL("image/jpeg");
-document.getElementById("download_dynamic_chart").href = url_base64jp;
+function dynamic_pre_download(){
+    var url_base64_dynamic = document.getElementById("dynamic_chart").toDataURL("image/jpeg");
+    document.getElementById("download_dynamic_chart").href = url_base64_dynamic;
+}
