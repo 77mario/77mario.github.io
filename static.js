@@ -6,9 +6,10 @@ var static_chart = "";
 //Inizializzazione grafico
 
 function create_static_chart(){
-if (static_chart != "")
+if (static_chart != ""){
     static_chart.clear();
-    
+    n_statico=1;
+}
 var barChartData = {
             labels: ['Valori Ideali'],
 			datasets: [{

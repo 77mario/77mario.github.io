@@ -6,9 +6,10 @@ var dynamic_chart = "";
 //Inizializzazione grafico
 
 function create_dynamic_chart(){
-if (dynamic_chart != "")
+if (dynamic_chart != ""){
     dynamic_chart.clear();
-    
+    n_passo=1;
+    }
 dynamic_chart = new Chart(dynamic_ctx, {
 	
 
