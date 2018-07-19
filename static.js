@@ -178,10 +178,10 @@ function remove_static_history_rows(){
     var time_text = document.createTextNode("Valori ideali");
     time_cell.appendChild(time_text);
     var back_cell = tr.insertCell(1);
-    var back_text = document.createTextNode("55%");
+    var back_text = document.createTextNode("55");
     back_cell.appendChild(back_text);
 	var av_cell = tr.insertCell(2);
-    var av_text = document.createTextNode("45%");
+    var av_text = document.createTextNode("45");
     av_cell.appendChild(av_text);
     var av_kg_cell = tr.insertCell(3);
     var av_kg_text = document.createTextNode("-");
