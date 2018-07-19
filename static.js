@@ -117,7 +117,7 @@ function generateHeatmap(av_sx,av_dx,back){
 
 //Add data to static table
 
-function addDataStaticTable(av,back,time){
+function addDataStaticTable(av,back,duration){
         
         var table = document.getElementById("static-history-body");
         
@@ -147,7 +147,7 @@ function addDataStaticTable(av,back,time){
         var back_kg_text = document.createTextNode(back/100*tot);
         back_kg_cell.appendChild(back_kg_text);
 		var time_cell = tr.insertCell(5);
-        var time_text = document.createTextNode(time);
+        var time_text = document.createTextNode(duration);
         time_cell.appendChild(time_text);
         tr.appendChild(td);
         table.appendChild(tr); 

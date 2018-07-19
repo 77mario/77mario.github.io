@@ -149,16 +149,16 @@ function log(data, type = '') {
             var avan_dx = weight_perc.avan_dx;
             var back = weight_perc.back;
             tot = json_data.weight_tot;
-            var durata = json_data.time;
+            //var durata = json_data.time; 10
                 
             //Update static chart
-            addStaticData(static_chart,avan_sx,avan_dx,back,time);
+            addStaticData(static_chart,avan_sx,avan_dx,back,10);
             console.log("Static data added");
             //Update heatmap
             generateHeatmap(avan_sx,avan_dx,back);            
             console.log("Heatmap Generated");
             //Add row to hostory static table 
-            addDataStaticTable(avan_sx+avan_dx,back,time);
+            addDataStaticTable(avan_sx+avan_dx,back,10);
             console.log("Historical Data added to Static Table");
             
             enableButtons();
