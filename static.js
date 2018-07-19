@@ -159,3 +159,8 @@ function static_pre_download(){
 var url_base64_static = document.getElementById("static_chart").toDataURL("image/jpeg");
 document.getElementById("download_static_chart").href = url_base64_static;
 }
+
+//Remove rows from table
+function remove_static_history_rows(){
+    $("#static_history td").remove(); 
+}

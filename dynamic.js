@@ -136,3 +136,8 @@ function dynamic_pre_download(){
     var url_base64_dynamic = document.getElementById("dynamic_chart").toDataURL("image/jpeg");
     document.getElementById("download_dynamic_chart").href = url_base64_dynamic;
 }
+
+//Remove rows from table
+function remove_dynamic_history_rows(){
+    $("#dynamic_history td").remove(); 
+}
