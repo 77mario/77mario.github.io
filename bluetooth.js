@@ -157,7 +157,7 @@ function log(data, type = '') {
             generateHeatmap(avan_sx,avan_dx,back);            
             console.log("Heatmap Generated");
             //Add row to hostory static table 
-            addDataStaticTable(avan_sx+avan_dx,back,tot);
+            addDataStaticTable(avan_sx+avan_dx,back);
             console.log("Historical Data added to Static Table");
             
             enableButtons();
@@ -171,6 +171,8 @@ function log(data, type = '') {
             //Update static chart
             addDynamicData(dynamic_chart,avan_sx,avan_dx,back);
             console.log("Dynamic data added");
+            //Add row to history dinamic table 
+            addDataDynamicTable(avan_sx+avan_dx,back);
         }
 }
 

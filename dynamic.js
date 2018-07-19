@@ -101,7 +101,36 @@ function addDynamicData(dynamic_chart,av_sx,av_dx,back){
     
     
 };
+//Add data to dynamic table
 
+function addDataDynamicTable(av,back){
+        
+        var table = document.getElementById("dynamic-history");
+
+        var tr = document.createElement("tr");
+        if(back>=41 && back<=49){
+           tr.classList.add("success");
+        }else{
+           tr.classList.add("danger");
+        }
+ 
+        var td = document.createElement("td");
+  		var time_cell = tr.insertCell(0);
+        var date = new Date(Date.now());
+        var time_string = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()+" - "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+        var time = document.createTextNode();
+        time_cell.appendChild(time.get);
+  		var av_cell = tr.insertCell(1);
+        var av_text = document.createTextNode(av);
+        av_cell.appendChild(av_text);
+		var back_cell = tr.insertCell(2);
+        var back_text = document.createTextNode(back);
+        back_cell.appendChild(back_text);
+        tr.appendChild(td);
+        table.appendChild(tr); 
+
+
+}
 //Download image
 function dynamic_pre_download(){
     var url_base64_dynamic = document.getElementById("dynamic_chart").toDataURL("image/jpeg");

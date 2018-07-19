@@ -130,8 +130,10 @@ function addDataStaticTable(av,back){
  
         var td = document.createElement("td");
   		var time_cell = tr.insertCell(0);
-        var time = document.createTextNode(new Date(Date.now()));
-        time_cell.appendChild(time);
+        var date = new Date(Date.now());
+        var time_string = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()+" - "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+        var time = document.createTextNode();
+        time_cell.appendChild(time.get);
   		var av_cell = tr.insertCell(1);
         var av_text = document.createTextNode(av);
         av_cell.appendChild(av_text);
@@ -148,7 +150,7 @@ function addDataStaticTable(av,back){
         table.appendChild(tr); 
 
 
-
+}
 //Download image
 function static_pre_download(){
 var url_base64_static = document.getElementById("static_chart").toDataURL("image/jpeg");
