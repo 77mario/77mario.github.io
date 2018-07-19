@@ -120,12 +120,12 @@ function addDataDynamicTable(av,back){
         var time_string = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()+" - "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
         var time = document.createTextNode(time_string);
         time_cell.appendChild(time);
-  		var av_cell = tr.insertCell(1);
-        var av_text = document.createTextNode(av);
-        av_cell.appendChild(av_text);
-		var back_cell = tr.insertCell(2);
+        var back_cell = tr.insertCell(1);
         var back_text = document.createTextNode(back);
         back_cell.appendChild(back_text);
+  		var av_cell = tr.insertCell(2);
+        var av_text = document.createTextNode(av);
+        av_cell.appendChild(av_text);
         tr.appendChild(td);
         table.appendChild(tr); 
 
