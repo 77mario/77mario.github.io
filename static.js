@@ -115,6 +115,34 @@ function generateHeatmap(av_sx,av_dx,back){
           });
 };
 
+//Add data to static table
+function addDataStaticTable(av,back){
+        
+        var table = document.getElementById("static-history");
+
+        var tr = document.createElement("tr");
+        if(back>51 && back<59){
+           tr.classList.add("success");
+        }else{
+           tr.classList.add("danger");
+        }
+        var td = document.createElement("td");
+        var time = document.createTextNode(+ new Date());
+        td.appendChild(time);
+        var av = document.createTextNode(av);
+        td.appendChild(av);
+        var back = document.createTextNode(back);
+        td.appendChild(back);
+        var av_kg = document.createTextNode(av/100*tot);
+        td.appendChild(av_kg);
+        var back_kg = document.createTextNode(back/100*tot);
+        td.appendChild(back_kg);
+        tr.appendChild(td);
+        table.appendChild(tr); 
+    
+}
+
+
 
 //Download image
 function static_pre_download(){

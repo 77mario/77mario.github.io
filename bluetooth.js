@@ -156,6 +156,9 @@ function log(data, type = '') {
             //Update heatmap
             generateHeatmap(avan_sx,avan_dx,back);            
             console.log("Heatmap Generated");
+            //Add row to hostory static table 
+            addDataStaticTable(avan_sx+avan_dx,back,tot);
+            console.log("Historical Data added to Static Table");
             
             enableButtons();
 
