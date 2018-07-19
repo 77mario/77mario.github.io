@@ -119,8 +119,8 @@ function generateHeatmap(av_sx,av_dx,back){
 
 function addDataStaticTable(av,back){
         
-        var table = document.getElementById("static-history");
-
+        var table = document.getElementById("static-history-body");
+        
         var tr = document.createElement("tr");
         if(back>51 && back<59){
            tr.classList.add("success");
