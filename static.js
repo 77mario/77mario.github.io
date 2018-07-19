@@ -87,10 +87,10 @@ static_chart = new Chart(static_ctx, {
 });
 
 //Aggiungi valutazione statica
-function addStaticData(chart,av_sx,av_dx,back){
+function addStaticData(chart,av_sx,av_dx,back,time){
                 var n = n_statico;
                 n_statico++;
-                var label = n+"°";
+                var label = n+"° - "+time+" s";
 				chart.data.labels.push(label);
 
 				chart.data.datasets[0].data[n] = av_sx+av_dx;
@@ -117,7 +117,7 @@ function generateHeatmap(av_sx,av_dx,back){
 
 //Add data to static table
 
-function addDataStaticTable(av,back){
+function addDataStaticTable(av,back,time){
         
         var table = document.getElementById("static-history-body");
         
@@ -146,6 +146,9 @@ function addDataStaticTable(av,back){
 		var back_kg_cell = tr.insertCell(4);
         var back_kg_text = document.createTextNode(back/100*tot);
         back_kg_cell.appendChild(back_kg_text);
+		var time_cell = tr.insertCell(5);
+        var time_text = document.createTextNode(time);
+        time_cell.appendChild(time_text);
         tr.appendChild(td);
         table.appendChild(tr); 
 

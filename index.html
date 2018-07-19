@@ -272,7 +272,7 @@
           </div>
           <div class="chart-stage">
               <div class="card-body">
-        <table class="table" id="dynamic-history">
+        <table class="table" id="dynamic_history">
     <thead>
       <tr>
         <th>#</th>
@@ -296,7 +296,7 @@
         </div>          
             </div>
           <div class="chart-notes">
-            Esporta come ...
+              <button id="btnExport" onclick="javascript:xport.toCSV('dynamic_history');"> Export to CSV</button>
           </div>
         </div>
       </div>
@@ -316,6 +316,7 @@
         <th>Avamp (%)</th>
         <th>Retro (kg)</th>
         <th>Avamp (kg)</th>
+        <th>Durata (s)</th>
       </tr>
         </thead>
     <tbody id="static-history-body">
@@ -325,6 +326,7 @@
         <td>55</td>
         <td>-</td>
         <td>-</td>
+        <td>51</td>
       </tr>
     </tbody>
   </table>
