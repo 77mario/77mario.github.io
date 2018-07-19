@@ -140,8 +140,8 @@ function dynamic_pre_download(){
 //Remove rows from table
 function remove_dynamic_history_rows(){
     $("#dynamic_history td").remove();
+    
     var table = document.getElementById("dynamic-history-body");
-
     var tr = document.createElement("tr");
     tr.classList.add("success");
     
