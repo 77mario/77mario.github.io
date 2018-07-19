@@ -163,4 +163,30 @@ document.getElementById("download_static_chart").href = url_base64_static;
 //Remove rows from table
 function remove_static_history_rows(){
     $("#static_history td").remove(); 
+
+    var table = document.getElementById("dynamic-history-body");
+    var tr = document.createElement("tr");
+    tr.classList.add("success");
+    
+    var td = document.createElement("td");
+  	var time_cell = tr.insertCell(0);
+    var time_text = document.createTextNode("Valori ideali");
+    time_cell.appendChild(time_text);
+    var av_cell = tr.insertCell(1);
+    var av_text = document.createTextNode("45%");
+    av_cell.appendChild(av_text);
+	var back_cell = tr.insertCell(2);
+    var back_text = document.createTextNode("55%");
+    back_cell.appendChild(back_text);
+    var av_kg_cell = tr.insertCell(3);
+    var av_kg_text = document.createTextNode("-");
+    av_kg_cell.appendChild(av_kg_text);
+	var back_kg_cell = tr.insertCell(4);
+    var back_kg_text = document.createTextNode("-");
+    back_kg_cell.appendChild(back_kg_text);
+	var time_cell = tr.insertCell(5);
+    var time_text = document.createTextNode("51");
+    time_cell.appendChild(time_text);
+    tr.appendChild(td);
+    table.appendChild(tr); 
 }
