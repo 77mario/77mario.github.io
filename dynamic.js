@@ -118,8 +118,8 @@ function addDataDynamicTable(av,back){
   		var time_cell = tr.insertCell(0);
         var date = new Date(Date.now());
         var time_string = date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()+" - "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
-        var time = document.createTextNode();
-        time_cell.appendChild(time.get);
+        var time = document.createTextNode(time_string);
+        time_cell.appendChild(time);
   		var av_cell = tr.insertCell(1);
         var av_text = document.createTextNode(av);
         av_cell.appendChild(av_text);
