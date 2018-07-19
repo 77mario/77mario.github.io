@@ -116,6 +116,7 @@ function generateHeatmap(av_sx,av_dx,back){
 };
 
 //Add data to static table
+
 function addDataStaticTable(av,back){
         
         var table = document.getElementById("static-history");
@@ -126,21 +127,25 @@ function addDataStaticTable(av,back){
         }else{
            tr.classList.add("danger");
         }
+ 
         var td = document.createElement("td");
-        var time = document.createTextNode(+ new Date());
-        td.appendChild(time);
-        var av = document.createTextNode(av);
-        td.appendChild(av);
-        var back = document.createTextNode(back);
-        td.appendChild(back);
-        var av_kg = document.createTextNode(av/100*tot);
-        td.appendChild(av_kg);
-        var back_kg = document.createTextNode(back/100*tot);
-        td.appendChild(back_kg);
+  		var time_cell = tr.insertCell(0);
+        var time = document.createTextNode(new Date(Date.now()));
+        time_cell.appendChild(time);
+  		var av_cell = tr.insertCell(1);
+        var av_text = document.createTextNode(av);
+        av_cell.appendChild(av_text);
+		var back_cell = tr.insertCell(2);
+        var back_text = document.createTextNode(back);
+        back_cell.appendChild(back_text);
+        var av_kg_cell = tr.insertCell(3);
+        var av_kg_text = document.createTextNode(av/100*tot);
+        av_kg_cell.appendChild(av_kg_text);
+		var back_kg_cell = tr.insertCell(4);
+        var back_kg_text = document.createTextNode(back/100*tot);
+        back_kg_cell.appendChild(back_kg_text);
         tr.appendChild(td);
         table.appendChild(tr); 
-    
-}
 
 
 
