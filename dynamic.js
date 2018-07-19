@@ -9,6 +9,10 @@ function create_dynamic_chart(){
 if (dynamic_chart != ""){
     dynamic_chart.clear();
     n_passo=1;
+    document.getElementById("numero_passi").innerHTML = 0;
+    document.getElementById("numero_passi_sbagliati").innerHTML = 0;
+    document.getElementById("numero_passi_corretti").innerHTML = 0;
+
     }
 dynamic_chart = new Chart(dynamic_ctx, {
 	
