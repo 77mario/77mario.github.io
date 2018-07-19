@@ -141,10 +141,10 @@ function addDataStaticTable(av,back,duration){
         var back_text = document.createTextNode(back);
         back_cell.appendChild(back_text);
         var av_kg_cell = tr.insertCell(3);
-        var av_kg_text = document.createTextNode(av/100*tot);
+        var av_kg_text = document.createTextNode((av/100*tot).toFixed(2));
         av_kg_cell.appendChild(av_kg_text);
 		var back_kg_cell = tr.insertCell(4);
-        var back_kg_text = document.createTextNode(back/100*tot);
+        var back_kg_text = document.createTextNode((back/100*tot).toFixed(2));
         back_kg_cell.appendChild(back_kg_text);
 		var time_cell = tr.insertCell(5);
         var time_text = document.createTextNode(duration);
