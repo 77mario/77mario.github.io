@@ -5,11 +5,10 @@ var dynamic_chart = "";
 
 //Inizializzazione grafico
 
-//Create gradient
-//var gradient = ctx.createLinearGradient(0, 0, 0, 100);
-//gradient.addColorStop(0, 'red');
-//gradient.addColorStop(0.95, 'yellow');
-//gradient.addColorStop(1, 'green');
+function create_dynamic_chart(){
+if (dynamic_chart != "")
+    dynamic_chart.clear();
+    
 dynamic_chart = new Chart(dynamic_ctx, {
 	
 
@@ -60,7 +59,7 @@ scales: {
     }
   }
 });
-
+}
 
 //Aggiungi valutazione dinamica
 function addDynamicData(dynamic_chart,av_sx,av_dx,back){

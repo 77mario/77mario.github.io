@@ -5,6 +5,10 @@ var static_chart = "";
 
 //Inizializzazione grafico
 
+function create_static_chart(){
+if (static_chart != "")
+    static_chart.clear();
+    
 var barChartData = {
             labels: ['Valori Ideali'],
 			datasets: [{
@@ -85,7 +89,7 @@ static_chart = new Chart(static_ctx, {
     }
   }
 });
-
+}
 //Aggiungi valutazione statica
 function addStaticData(chart,av_sx,av_dx,back,time){
                 var n = n_statico;
