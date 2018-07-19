@@ -105,7 +105,7 @@ function addDynamicData(dynamic_chart,av_sx,av_dx,back){
 
 function addDataDynamicTable(av,back){
         
-        var table = document.getElementById("dynamic-history");
+        var table = document.getElementById("dynamic-history-body");
 
         var tr = document.createElement("tr");
         if(back>=41 && back<=49){

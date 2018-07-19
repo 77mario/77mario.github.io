@@ -308,7 +308,7 @@
           <div class="chart-stage">
               <div class="card-body">
 
-                  <table class="table" id="static-history">
+                  <table class="table" id="static_history">
         <thead>
       <tr>
         <th>Time</th>
@@ -334,8 +334,8 @@
               </div>             
           </div>
           <div class="chart-notes">
-            Esporta come ...
-          </div>
+              <button id="btnExport" onclick="javascript:xport.toCSV('static_history');"> Export to CSV</button>
+            </div>
         </div>
       </div>
   </div>
@@ -354,6 +354,7 @@
     </script>
     <script type="text/javascript" src="static.js"></script>
     <script type="text/javascript" src="dynamic.js"></script>
+    <script type="text/javascript" src="export.js"></script>
 
 
 </body>
