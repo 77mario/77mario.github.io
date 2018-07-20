@@ -217,6 +217,7 @@ function disableButtons(){
         document.getElementById("calibrationButton").disabled = true;
         document.getElementById("staticButton").disabled = true;
         document.getElementById("dynamicButton").disabled = true;
+        document.getElementById("autoButton").disabled = true;
         
 }
 
@@ -225,5 +226,7 @@ function enableButtons(){
         document.getElementById("calibrationButton").disabled = false;
         document.getElementById("staticButton").disabled = false;
         document.getElementById("dynamicButton").disabled = false;
+        document.getElementById("autoButton").disabled = false;
+
         
 }
