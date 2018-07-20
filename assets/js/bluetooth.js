@@ -216,7 +216,7 @@ function str2ab(str){
 }
 
 function afterCalibration(){
-        enableButtons(){
+        enableButtons();
         
 }
 
