@@ -86,13 +86,13 @@
                       <img src="assets/img/bluetooth.png" width="150" height="150" />
                     </span>
                     <div style="text-align: center;">
-                      <button id="connect" class="btn btn-success" onclick="connect();">Connetti</button>
+                      <button id="connect" class="btn btn-success" onclick="connect();">Connect</button>
                       <br>
-                      <small id="connessione-text" class="text-muted">Connetti con SmartInsole</small>
+                      <small id="connessione-text" class="text-muted">Connect with SmartInsole</small>
                       <br>
-                      <button id ="calibrationButton" class="btn btn-danger" onclick="calibra_acc();" disabled>Calibra</button>
+                      <button id ="calibrationButton" class="btn btn-danger" onclick="calibra_acc();" disabled>Calibrate</button>
                       <br>
-                      <small id="calibrazione-text" class="text-muted">Effetturare Calibrazione</small>
+                      <small id="calibrazione-text" class="text-muted">Perform Accelerometer Calibration</small>
 
                       
                     </div>
@@ -128,7 +128,7 @@
                     <div style="text-align: center;">
             <button id="dynamicButton" class="btn btn-warning" onclick="start_dynamic_evaluation()" disabled>Dynamic Evaluation</button>
         <br>
-                      <small class="text-muted">Connect with STM32</small>
+                      <small class="text-muted">Start the dynamic evaluation</small>
                     </div>
                   </div>
                 </div>
@@ -148,13 +148,13 @@
       <div class="col-sm-12 col-md-12">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Valutazione dinamica
+            Dynamic Evaluation
           </div>
           <div class="chart-stage">
 			<!-- Charts dynamic evaluation-->
               <div class="card">
   <div class="card-header">
-    <h6 class="card-title">Grafico di apprendimento</h6>
+    <h6 class="card-title">Dynamic Chart</h6>
   </div>
   <div class="card-body">
 <canvas id="dynamic_chart"></canvas>
@@ -171,7 +171,7 @@
       <div class="col-sm-12 col-md-12">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Valutazione dinamica
+            Dynamic Evaluation
             </div>
             <div class="chart-stage"> <!-- BLOCCO COMANDI -->
             <div class="row row-cards">
@@ -181,7 +181,7 @@
                 <div class="card p-3">
                   <div class="d-flex align-items-center" style="text-align: center;">
                     <div style="text-align: center;">
-                      <h5>Numero Passi</h5>
+                      <h5>Steps</h5>
                       <br>
                       <p id="numero_passi">0</p>
                     </div>
@@ -193,7 +193,7 @@
                 <div class="card p-3">
                   <div class="d-flex align-items-center" style="text-align: center;">
                     <div style="text-align: center;">
-                      <h5>Passi corretti</h5>
+                      <h5>Correct Steps</h5>
                       <br>
                       <p id="numero_passi_corretti">0</p>
                     </div>
@@ -204,7 +204,7 @@
                 <div class="card p-3">
                   <div class="d-flex align-items-center" style="text-align: center;">
                     <div style="text-align: center;">
-                      <h5>Passi sbagliati</h5>
+                      <h5>Wrong Steps</h5>
                       <br>
                       <p id="numero_passi_sbagliati">0</p>
                     </div>
@@ -216,7 +216,7 @@
          </div>
           </div>
             <div class="chart-notes">
-            *Bluetooth connection is required to connect dashsboard with STM32.
+            
           </div>
           </div>
           
@@ -226,7 +226,7 @@
       <div class="col-sm-6 col-md-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Valutazione statica - Bar Chart 
+            Static Evaluation - Bar Chart 
           </div>
           <div class="chart-stage">
               <canvas id="static_chart"></canvas>
@@ -239,7 +239,7 @@
       <div class="col-sm-6 col-md-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Valutazione statica - Heatmap
+            Static evaluation - Heatmap
           </div>
           <div class="chart-stage" style="text-align: center;">
                 <div id="heatmapContainerWrapper" class="heatmap">
@@ -267,7 +267,7 @@
       <div class="col-sm-6 col-md-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-            Valutazione Dinamica (Storico)
+            Dynamic Evaluation (Data History)
           </div>
           <div class="chart-stage">
               <div class="card-body">
@@ -304,7 +304,7 @@
       <div class="col-sm-6 col-md-6">
         <div class="chart-wrapper">
           <div class="chart-title">
-              Valutazione Statica (Storico)
+            Static Evaluation (Data History)
           </div>
           <div class="chart-stage">
               <div class="card-body">
