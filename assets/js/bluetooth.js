@@ -74,8 +74,10 @@ function start_auto_evaluation(){
 }
    
 function calibra_acc(){
-        document.getElementById("calibrazione-text").innerHTML = "Calibrazione effettuata!";
+        document.getElementById("calibrazione-text").innerHTML = "Calibration done!";
 		command = "300";
+        afterCalibration();
+
 }
 
 function requestBluetoothDevice() {
@@ -109,7 +111,7 @@ function connectDeviceAndCacheCharacteristic(device) {
 
 function startNotifications(characteristic) {
             document.getElementById("connessione-text").innerHTML = "Connesso con Smart Insole!";
-            enableButtons();
+            document.getElementById("staticButton").disabled = false;
 
 			return characteristic.startNotifications().
 			then(() => {
@@ -212,9 +214,14 @@ function str2ab(str){
 		return buf;
 }
 
+function afterCalibration(){
+        enableButtons(){
+        
+}
+
+
 function disableButtons(){
         
-        document.getElementById("calibrationButton").disabled = true;
         document.getElementById("staticButton").disabled = true;
         document.getElementById("dynamicButton").disabled = true;
         document.getElementById("autoButton").disabled = true;
@@ -223,7 +230,6 @@ function disableButtons(){
 
 function enableButtons(){
         
-        document.getElementById("calibrationButton").disabled = false;
         document.getElementById("staticButton").disabled = false;
         document.getElementById("dynamicButton").disabled = false;
         document.getElementById("autoButton").disabled = false;
