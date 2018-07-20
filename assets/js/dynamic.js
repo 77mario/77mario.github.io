@@ -7,7 +7,7 @@ var dynamic_chart = "";
 
 function create_dynamic_chart(){
 if (dynamic_chart != ""){
-    dynamic_chart.clear();
+    dynamic_chart.destroy();
     n_passo=1;
     document.getElementById("numero_passi").innerHTML = 0;
     document.getElementById("numero_passi_sbagliati").innerHTML = 0;

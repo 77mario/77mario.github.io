@@ -7,7 +7,7 @@ var static_chart = "";
 
 function create_static_chart(){
 if (static_chart != ""){
-    static_chart.clear();
+    static_chart.destroy();
     n_statico=1;
 }
 var barChartData = {
