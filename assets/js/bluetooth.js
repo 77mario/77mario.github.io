@@ -154,8 +154,8 @@ function handleCharacteristicValueChanged(event) {
 }		
 
 function receive(data) {
-        tot = 0;
-  		log(data, 'in');
+        
+  	log(data, 'in');
 }
 
 function log(data, type = '') {
@@ -165,6 +165,7 @@ function log(data, type = '') {
         var code = json_data.code;
         
         if (code =="1"){
+	    tot = 0;
             var weight_perc = json_data.weight_perc; // Array;
             var avan_sx = weight_perc.avan_sx;
             var avan_dx = weight_perc.avan_dx;
