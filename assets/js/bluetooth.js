@@ -60,7 +60,7 @@ function start_auto_evaluation(){
             auto_btn.innerHTML = "Auto Evaluation";
             auto_btn.classList.add('btn-success');
             auto_btn.classList.remove('btn-danger');
-            auto_btn();
+            enableButtons();
         }else{
             auto_btn.innerHTML = "Stop";
             auto_btn.classList.remove('btn-success');
