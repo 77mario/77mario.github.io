@@ -171,7 +171,7 @@ function log(data, type = '') {
             var back = weight_perc.back;
             tot = json_data.weight_tot;
             var durata = json_data.time; 
-                
+            if(tot != 0){    
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back,durata);
             console.log("Static data added");
@@ -181,7 +181,7 @@ function log(data, type = '') {
             //Add row to hostory static table 
             addDataStaticTable(avan_sx+avan_dx,back,durata);
             console.log("Historical Data added to Static Table");
-            
+            }
             enableButtons();
 
         }else if (code=="2"){
