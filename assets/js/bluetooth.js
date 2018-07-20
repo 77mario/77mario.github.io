@@ -156,8 +156,8 @@ function handleCharacteristicValueChanged(event) {
 }		
 
 function receive(data) {
-        tot = 0;
-  		log(data, 'in');
+        
+  	log(data, 'in');
 }
 
 function log(data, type = '') {
@@ -167,13 +167,14 @@ function log(data, type = '') {
         var code = json_data.code;
         
         if (code =="1"){
+	    tot = 0;
             var weight_perc = json_data.weight_perc; // Array;
             var avan_sx = weight_perc.avan_sx;
             var avan_dx = weight_perc.avan_dx;
             var back = weight_perc.back;
             tot = json_data.weight_tot;
             var durata = json_data.time; 
-                
+            if(tot != 0){    
             //Update static chart
             addStaticData(static_chart,avan_sx,avan_dx,back,durata);
             console.log("Static data added");
@@ -183,7 +184,7 @@ function log(data, type = '') {
             //Add row to hostory static table 
             addDataStaticTable(avan_sx+avan_dx,back,durata);
             console.log("Historical Data added to Static Table");
-            
+            }
             enableButtons();
 
         }else if (code=="2"){
