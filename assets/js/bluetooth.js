@@ -51,6 +51,27 @@ function start_dynamic_evaluation(){
             dyn_btn.disabled = false;
         }
 }
+
+function start_auto_evaluation(){
+    
+    var auto_btn = document.getElementById("autoButton");
+        if(document.getElementById("autoButton").innerHTML == "Stop"){
+            command = "401";
+            auto_btn.innerHTML = "Auto Evaluation";
+            auto_btn.classList.add('btn-warning');
+            auto_btn.classList.remove('btn-success');
+            auto_btn();
+        }else{
+            auto_btn.innerHTML = "Stop";
+            auto_btn.classList.remove('btn-warning');
+            auto_btn.classList.add('btn-success');
+            command = "400";
+            disableButtons()
+            auto_btn.disabled = false;
+        }
+    
+    
+}
    
 function calibra_acc(){
         document.getElementById("calibrazione-text").innerHTML = "Calibrazione effettuata!";
