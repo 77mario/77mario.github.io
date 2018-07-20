@@ -110,8 +110,8 @@ function connectDeviceAndCacheCharacteristic(device) {
 }
 
 function startNotifications(characteristic) {
-            document.getElementById("connessione-text").innerHTML = "Connesso con Smart Insole!";
-            document.getElementById("staticButton").disabled = false;
+            document.getElementById("connessione-text").innerHTML = "Connect with STM32!";
+            document.getElementById("calibrationButton").disabled = false;
 
 			return characteristic.startNotifications().
 			then(() => {
